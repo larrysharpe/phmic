@@ -7,7 +7,7 @@
 >More details about the styles and patterns used in this app can be found in my [Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide) and the [Angular Patterns: Clean Code](http://jpapa.me/ngclean) course at [Pluralsight](http://pluralsight.com/training/Authors/Details/john-papa) and working in teams.
 
 ## What is different from John Papa's HotTowel?
-All the credits for the Gulp Tasks go to the amazing John Papa's HotTowel Generator. I only made some tweaks to have a cleaner starting points for my next projects.
+All the credits for the Gulp Tasks go to the amazing [John Papa's HotTowel Generator](https://github.com/johnpapa/generator-hottowel). I only made some tweaks to have a cleaner starting points for my future projects.
 Here are the main differences from the original:
 - SASS instead of LESS. with dynamic sass import into the main styles.scss for any .scss file that resides inside the app folder
 - Angular 1.5, Angular Animate 1.5, Angular-mocks 1.5, Angular-Sanatize 1.5
