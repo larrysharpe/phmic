@@ -49,7 +49,7 @@
     * --nosync
     */
 
-    gulp.task('serve-dev', [], function() {
+    gulp.task('serve-dev', ['build'], function() {
         // serve(true /*isDev*/);
         serve(gulp, plugins, config, args, true /*isDev*/, false /* specRunner */);
     });
