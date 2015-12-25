@@ -1,0 +1,123 @@
+
+.icon-bkg{
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    height: $icon-bkg-md;
+    width: $icon-bkg-md;
+
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    &.inverse{
+        border: 2px solid;
+        @include icon-variant(transparent, $gray-light, $gray-light);
+    }
+
+    @include icon-variant($gray-light);
+}
+
+.icon-bkg-hover {
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    height: $icon-bkg-md;
+    width: $icon-bkg-md;
+    cursor:pointer;
+
+    i{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    &.inverse{
+        border: 2px solid;
+        @include icon-variant-hover(transparent, $gray-light, $gray-light);
+    }
+
+    @include icon-variant-hover($gray-light);
+}
+
+
+// SIZES
+// -----
+.icon-bkg-sm{
+    height: $icon-bkg-sm;
+    width: $icon-bkg-sm;
+}
+
+.icon-bkg-lg{
+    height: $icon-bkg-lg;
+    width: $icon-bkg-lg;
+}
+
+// BKG VARIATIONS
+// --------------
+.bkg-primary{
+    @include icon-variant($brand-primary);
+
+    &.inverse {
+        @include icon-variant(transparent, $brand-primary, $brand-primary);
+    }
+}
+.bkg-primary-hover{
+    @include icon-variant-hover($brand-primary);
+}
+
+.bkg-success{
+    @include icon-variant($brand-success);
+
+    &.inverse{
+        @include icon-variant(transparent, $brand-success, $brand-success);
+    }
+}
+
+.bkg-info{
+    @include icon-variant($brand-info);
+
+    &.inverse{
+        @include icon-variant(transparent, $brand-info, $brand-info);
+    }
+}
+
+.bkg-warning{
+    @include icon-variant($brand-warning);
+
+    &.inverse{
+        @include icon-variant(transparent, $brand-warning, $brand-warning);
+    }
+}
+
+.bkg-danger{
+    @include icon-variant($brand-danger);
+    &.inverse{
+        @include icon-variant(transparent, $brand-danger, $brand-danger);
+    }
+}
+
+
+//Icon group
+.group-icon {
+
+    i {
+        font-size:1.5rem;
+    }
+
+    &.horizontal{
+        display:table;
+        > * {
+            display:table-cell;
+            vertical-align: middle;
+        }
+
+        span {
+            padding-left: $space-sm;
+        }
+    }
+}

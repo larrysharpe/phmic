@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@import 'mixins';
+@import 'vars';
+
+@import 'bootstrap/bootstrap.imports';
+
+@import 'core/scaffolding';
+@import 'core/fonts';
+@import 'core/icons';
+
+@import 'globals/fonts';
+@import 'globals/helpers';
+@import 'globals/icons-components';
+@import 'globals/buttons';
+@import 'globals/forms';
+
+// Dynamic inject any .scss file from our app folder
+// injector
+// endinjector

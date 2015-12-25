@@ -1,0 +1,11 @@
+{
+  "name": "sanitas-portal",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6"
+  }
+}

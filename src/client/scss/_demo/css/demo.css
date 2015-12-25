@@ -1,0 +1,37 @@
+body{
+    padding:30px;
+}
+section {
+    margin:30px 0;
+}
+h2.section{
+    border-bottom:1px solid #ccc;
+    color: #0079c8;
+    font-size: 2rem;
+    margin-top:30px;
+    text-transform: uppercase;
+    clear:both;
+}
+.css-class{
+    float:left;
+    padding: 15px;
+    background-color:#ddd;
+    margin: 5px 5px 0 0;
+}
+.css-class span{
+    display:block;
+    margin: 5px 0;
+}
+.info {
+    color:green;
+}
+
+.element {
+    float:left;
+    margin: 10px 20px 10px 0px;
+    padding:10px;
+}
+
+.bkg-inverse{
+    background-color:#333;
+}

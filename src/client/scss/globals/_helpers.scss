@@ -1,0 +1,74 @@
+
+/*
+    Redondear
+
+*/
+
+.tablet{
+
+    display: tablet;
+
+    .tablet-cell{
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.align-middle{
+    vertical-align: middle;
+}
+
+.bkg-alt{
+    background-color: $gray-light;
+}
+
+.body-content-wrapper{
+    max-width: 1110px;
+}
+
+/*
+    p = padding, m = margin
+    y = vertical, x = horizontal
+    t = top, r = right, b = bottom, l = left
+    s = small, m = medium, l = large
+*/
+
+// paddgins
+.pts { padding-top:    $space-sm !important }
+.ptm { padding-top:    $space-md !important }
+.ptl { padding-top:    $space-lg !important }
+.prs { padding-right:  $space-sm !important }
+.prm { padding-right:  $space-md !important }
+.prl { padding-right:  $space-lg !important }
+.pbs { padding-bottom: $space-sm !important }
+.pbm { padding-bottom: $space-md !important }
+.pbl { padding-bottom: $space-lg !important }
+.pls { padding-left:   $space-sm !important }
+.plm { padding-left:   $space-md !important }
+.pll { padding-left:   $space-lg !important }
+.pxs { padding-left:   $space-sm !important; padding-right: $space-sm !important; }
+.pxm { padding-left:   $space-md !important; padding-right: $space-md !important; }
+.pxl { padding-left:   $space-lg !important; padding-right: $space-lg !important; }
+.pys { padding-top:    $space-sm !important; padding-bottom: $space-sm !important; }
+.pym { padding-top:    $space-md !important; padding-bottom: $space-md !important; }
+.pyl { padding-top:    $space-lg !important; padding-bottom: $space-lg !important; }
+
+// margins
+.mts { margin-top:    $space-sm !important}
+.mtm { margin-top:    $space-md !important}
+.mtl { margin-top:    $space-lg !important}
+.mrs { margin-right:  $space-sm !important}
+.mrm { margin-right:  $space-md !important}
+.mrl { margin-right:  $space-lg !important}
+.mbs { margin-bottom: $space-sm !important}
+.mbm { margin-bottom: $space-md !important}
+.mbl { margin-bottom: $space-lg !important}
+.mls { margin-left:   $space-sm !important}
+.mlm { margin-left:   $space-md !important}
+.mll { margin-left:   $space-lg !important}
+.mxs { margin-left:   $space-sm !important; margin-right:   $space-sm !important; }
+.mxm { margin-left:   $space-md !important; margin-right:   $space-md !important; }
+.mxl { margin-left:   $space-lg !important; margin-right:   $space-lg !important; }
+.mys { margin-top:    $space-sm !important; margin-bottom:  $space-sm !important; }
+.mym { margin-top:    $space-md !important; margin-bottom:  $space-md !important; }
+.myl { margin-top:    $space-lg !important; margin-bottom:  $space-lg !important; }

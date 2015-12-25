@@ -1,0 +1,830 @@
+@font-face {
+    font-family: 'bupa-icons';
+    src:    url($font-path + 'bupa-icons/bupa-icons.eot?nf7pf7');
+    src:    url($font-path + 'bupa-icons/bupa-icons.eot?nf7pf7#iefix') format('embedded-opentype'),
+        url($font-path + 'bupa-icons/bupa-icons.ttf?nf7pf7') format('truetype'),
+        url($font-path + 'bupa-icons/bupa-icons.woff?nf7pf7') format('woff'),
+        url($font-path + 'bupa-icons/bupa-icons.svg?nf7pf7#bupa-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'bupa-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-acupuncture:before {
+    content: "\e900";
+}
+.icon-clinical-analyzes:before {
+    content: "\e901";
+}
+.icon-pathologists:before {
+    content: "\e902";
+}
+.icon-anesthetists:before {
+    content: "\e903";
+}
+.icon-nursing-consultation:before {
+    content: "\e904";
+}
+.icon-specialist-advice:before {
+    content: "\e905";
+}
+.icon-medical-advice:before {
+    content: "\e906";
+}
+.icon-ats-due:before {
+    content: "\e907";
+}
+.icon-cardiovascular-surgery:before {
+    content: "\e908";
+}
+.icon-diagnosis-pre90:before {
+    content: "\e909";
+}
+.icon-endocrinology:before {
+    content: "\e90a";
+}
+.icon-specialties-inquiry:before {
+    content: "\e90b";
+}
+.icon-physiotherapy:before {
+    content: "\e90c";
+}
+.icon-homeopathy:before {
+    content: "\e90d";
+}
+.icon-general-hospitalization:before {
+    content: "\e90e";
+}
+.icon-internists:before {
+    content: "\e90f";
+}
+.icon-midwives:before {
+    content: "\e910";
+}
+.icon-general-medicine:before {
+    content: "\e911";
+}
+.icon-nuclear-medicine:before {
+    content: "\e912";
+}
+.icon-pediatric-medicine:before {
+    content: "\e913";
+}
+.icon-medical-sport:before {
+    content: "\e914";
+}
+.icon-neurophysiology:before {
+    content: "\e915";
+}
+.icon-oncology:before {
+    content: "\e916";
+}
+.icon-radiotherapy:before {
+    content: "\e917";
+}
+.icon-emergency:before {
+    content: "\e918";
+}
+.icon-videoconference:before {
+    content: "\e60f";
+}
+.icon-cardio:before {
+    content: "\e611";
+}
+.icon-change:before {
+    content: "\e612";
+}
+.icon-dental:before {
+    content: "\e615";
+}
+.icon-refunds:before {
+    content: "\e616";
+}
+.icon-refresh:before {
+    content: "\e619";
+}
+.icon-edit:before {
+    content: "\e61b";
+}
+.icon-phamarcy:before {
+    content: "\e61d";
+}
+.icon-formula:before {
+    content: "\e61e";
+}
+.icon-medicamento:before {
+    content: "\e621";
+}
+.icon-vaccine:before {
+    content: "\e622";
+}
+.icon-alcohol:before {
+    content: "\e624";
+}
+.icon-allergies:before {
+    content: "\e626";
+}
+.icon-height:before {
+    content: "\e628";
+}
+.icon-antecedentes:before {
+    content: "\e62a";
+}
+.icon-calories-burned:before {
+    content: "\e62c";
+}
+.icon-calories:before {
+    content: "\e62e";
+}
+.icon-cholesterol:before {
+    content: "\e630";
+}
+.icon-glucose:before {
+    content: "\e632";
+}
+.icon-group:before {
+    content: "\e635";
+}
+.icon-weight:before {
+    content: "\e637";
+}
+.icon-run:before {
+    content: "\e639";
+}
+.icon-sleep:before {
+    content: "\e63b";
+}
+.icon-tobacco:before {
+    content: "\e63c";
+}
+.icon-tension:before {
+    content: "\e63f";
+}
+.icon-vaccination:before {
+    content: "\e640";
+}
+.icon-walk:before {
+    content: "\e643";
+}
+.icon-girl:before {
+    content: "\e644";
+}
+.icon-guy:before {
+    content: "\e646";
+}
+.icon-man:before {
+    content: "\e648";
+}
+.icon-woman:before {
+    content: "\e64b";
+}
+.icon-little-girl:before {
+    content: "\e64d";
+}
+.icon-child:before {
+    content: "\e64e";
+}
+.icon-permission:before {
+    content: "\e651";
+}
+.icon-back:before {
+    content: "\e653";
+}
+.icon-appointments:before {
+    content: "\e655";
+}
+.icon-advices:before {
+    content: "\e657";
+}
+.icon-board:before {
+    content: "\e659";
+}
+.icon-exit:before {
+    content: "\e91c";
+}
+.icon-billing:before {
+    content: "\e65c";
+}
+.icon-reports3:before {
+    content: "\e65d";
+}
+.icon-start:before {
+    content: "\e65f";
+}
+.icon-refunds2:before {
+    content: "\e663";
+}
+.icon-chat:before {
+    content: "\e666";
+}
+.icon-stethoscope:before {
+    content: "\e91b";
+}
+.icon-back2:before {
+    content: "\e669";
+}
+.icon-down:before {
+    content: "\e66a";
+}
+.icon-ok:before {
+    content: "\e66c";
+}
+.icon-pass:before {
+    content: "\e66e";
+}
+.icon-user:before {
+    content: "\e670";
+}
+.icon-cam:before {
+    content: "\e672";
+}
+.icon-close:before {
+    content: "\e675";
+}
+.icon-download:before {
+    content: "\e676";
+}
+.icon-filter:before {
+    content: "\e679";
+}
+.icon-img:before {
+    content: "\e67b";
+}
+.icon-report2:before {
+    content: "\e67c";
+}
+.icon-share:before {
+    content: "\e67e";
+}
+.icon-card:before {
+    content: "\e681";
+}
+.icon-arrow:before {
+    content: "\e688";
+}
+.icon-dev:before {
+    content: "\e68d";
+}
+.icon-cardiology3:before {
+    content: "\e68e";
+}
+.icon-surgery:before {
+    content: "\e691";
+}
+.icon-dermatology2:before {
+    content: "\e693";
+}
+.icon-specialty:before {
+    content: "\e695";
+}
+.icon-gastro:before {
+    content: "\e696";
+}
+.icon-internal:before {
+    content: "\e699";
+}
+.icon-micro:before {
+    content: "\e69b";
+}
+.icon-phone-2:before {
+    content: "\e69d";
+}
+.icon-waiting-room:before {
+    content: "\e69e";
+}
+.icon-view:before {
+    content: "\e6a0";
+}
+.icon-calendar:before {
+    content: "\e6a2";
+}
+.icon-terms:before {
+    content: "\e6a7";
+}
+.icon-day:before {
+    content: "\e6a9";
+}
+.icon-gps:before {
+    content: "\e6ab";
+}
+.icon-hospital:before {
+    content: "\e6ad";
+}
+.icon-info:before {
+    content: "\e6ae";
+}
+.icon-call-health:before {
+    content: "\e6b3";
+}
+.icon-call-to:before {
+    content: "\e6b5";
+}
+.icon-magnifying-glass:before {
+    content: "\e6b6";
+}
+.icon-map:before {
+    content: "\e6b9";
+}
+.icon-plus:before {
+    content: "\e6bb";
+}
+.icon-movil:before {
+    content: "\e6bd";
+}
+.icon-phone:before {
+    content: "\e6bf";
+}
+.icon-preload:before {
+    content: "\e6c0";
+}
+.icon-smile:before {
+    content: "\e6c4";
+}
+.icon-afternoon:before {
+    content: "\e6c7";
+}
+.icon-videoconferencing2:before {
+    content: "\e6c9";
+}
+.icon-cancer:before {
+    content: "\e6cb";
+}
+.icon-cardiology2:before {
+    content: "\e6cd";
+}
+.icon-stop-smoking:before {
+    content: "\e6cf";
+}
+.icon-dental2:before {
+    content: "\e6d1";
+}
+.icon-diabetes:before {
+    content: "\e6d3";
+}
+.icon-diet:before {
+    content: "\e6d5";
+}
+.icon-exercise:before {
+    content: "\e6d7";
+}
+.icon-pregnancy:before {
+    content: "\e6d9";
+}
+.icon-refunds3:before {
+    content: "\e6db";
+}
+.icon-aesthetic:before {
+    content: "\e6dd";
+}
+.icon-life-style:before {
+    content: "\e6df";
+}
+.icon-gynecology:before {
+    content: "\e6e1";
+}
+.icon-impotence:before {
+    content: "\e6e3";
+}
+.icon-infographics:before {
+    content: "\e6e5";
+}
+.icon-injuries:before {
+    content: "\e6e6";
+}
+.icon-medicine:before {
+    content: "\e6e8";
+}
+.icon-prevention:before {
+    content: "\e6ea";
+}
+.icon-psychology:before {
+    content: "\e6ec";
+}
+.icon-envelope:before {
+    content: "\e6ef";
+}
+.icon-star:before {
+    content: "\e6f1";
+}
+.icon-third:before {
+    content: "\e6f2";
+}
+.icon-sex-life:before {
+    content: "\e6f5";
+}
+.icon-allergologie:before {
+    content: "\e6f7";
+}
+.icon-anesthesiology-pain-treatment:before {
+    content: "\e6f9";
+}
+.icon-angiologia-vascular-surgery:before {
+    content: "\e6fb";
+}
+.icon-digestive-apparatus:before {
+    content: "\e6fd";
+}
+.icon-cardiology:before {
+    content: "\e6fe";
+}
+.icon-general-digestive-surgery:before {
+    content: "\e700";
+}
+.icon-oral-maxillofacial-surgery:before {
+    content: "\e702";
+}
+.icon-pediatric-surgery:before {
+    content: "\e704";
+}
+.icon-aesthetic-plastic-surgery:before {
+    content: "\e707";
+}
+.icon-reconstructive-surgery:before {
+    content: "\e709";
+}
+.icon-thoracic-surgery:before {
+    content: "\e70b";
+}
+.icon-dermatology:before {
+    content: "\e70d";
+}
+.icon-endocrinology-nutrition:before {
+    content: "\e70e";
+}
+.icon-geriatrics:before {
+    content: "\e711";
+}
+.icon-hematology:before {
+    content: "\e713";
+}
+.icon-speech-therapist2:before {
+    content: "\e714";
+}
+.icon-speech-therapist:before {
+    content: "\e717";
+}
+.icon-internal-medicine:before {
+    content: "\e718";
+}
+.icon-pneumology:before {
+    content: "\e71a";
+}
+.icon-neurosurgery:before {
+    content: "\e71c";
+}
+.icon-neurology:before {
+    content: "\e71e";
+}
+.icon-obstetrics-gynecology:before {
+    content: "\e720";
+}
+.icon-dentistry:before {
+    content: "\e723";
+}
+.icon-ophthalmology:before {
+    content: "\e725";
+}
+.icon-otolaryngology:before {
+    content: "\e727";
+}
+.icon-pediatrics-specific-areas:before {
+    content: "\e729";
+}
+.icon-chiropody:before {
+    content: "\e72b";
+}
+.icon-psychology2:before {
+    content: "\e72c";
+}
+.icon-psychiatry:before {
+    content: "\e72e";
+}
+.icon-puericultura:before {
+    content: "\e730";
+}
+.icon-radiodiagnostico:before {
+    content: "\e732";
+}
+.icon-rehabilitacion:before {
+    content: "\e91a";
+}
+.icon-rheumatology:before {
+    content: "\e735";
+}
+.icon-traumatology:before {
+    content: "\e737";
+}
+.icon-urology:before {
+    content: "\e739";
+}
+.icon-nephrology:before {
+    content: "\e919";
+}
+.icon-info1:before {
+    content: "\e6b4";
+}
+.icon-car:before {
+    content: "\e6b7";
+}
+.icon-gps2:before {
+    content: "\e6b8";
+}
+.icon-share2:before {
+    content: "\e6ba";
+}
+.icon-arrow-bottom:before {
+    content: "\e6bc";
+}
+.icon-print:before {
+    content: "\e6be";
+}
+.icon-arrow-right:before {
+    content: "\e6c1";
+}
+.icon-sgm-clock:before {
+    content: "\e6c2";
+}
+.icon-arrow-top:before {
+    content: "\e6c5";
+}
+.icon-parking-2:before {
+    content: "\e6c6";
+}
+.icon-coffe:before {
+    content: "\e6c8";
+}
+.icon-bed:before {
+    content: "\e6ca";
+}
+.icon-plate:before {
+    content: "\e6cc";
+}
+.icon-diet2:before {
+    content: "\e6ce";
+}
+.icon-comb:before {
+    content: "\e6d0";
+}
+.icon-plus-2:before {
+    content: "\e6d2";
+}
+.icon-arrow-left:before {
+    content: "\e6d4";
+}
+.icon-less:before {
+    content: "\e6d6";
+}
+.icon-info2:before {
+    content: "\e6d8";
+}
+.icon-eye:before {
+    content: "\e6da";
+}
+.icon-stick:before {
+    content: "\e6dc";
+}
+.icon-play:before {
+    content: "\e6de";
+}
+.icon-dental3:before {
+    content: "\e6e0";
+}
+.icon-euro:before {
+    content: "\e6e2";
+}
+.icon-download2:before {
+    content: "\e6e4";
+}
+.icon-favorite:before {
+    content: "\e6e7";
+}
+.icon-assistance:before {
+    content: "\e6e9";
+}
+.icon-pointer:before {
+    content: "\e6eb";
+}
+.icon-renovate:before {
+    content: "\e6ed";
+}
+.icon-hospital2:before {
+    content: "\e6ee";
+}
+.icon-envelope2:before {
+    content: "\e6f0";
+}
+.icon-letter:before {
+    content: "\e6f3";
+}
+.icon-handicapped:before {
+    content: "\e6f4";
+}
+.icon-doctor:before {
+    content: "\e6f6";
+}
+.icon-reload:before {
+    content: "\e6f8";
+}
+.icon-vacuna-2:before {
+    content: "\e6fa";
+}
+.icon-chat2:before {
+    content: "\e6fc";
+}
+.icon-magnifying-glass2:before {
+    content: "\e6ff";
+}
+.icon-key:before {
+    content: "\e701";
+}
+.icon-at:before {
+    content: "\e703";
+}
+.icon-folder:before {
+    content: "\e705";
+}
+.icon-parking:before {
+    content: "\e706";
+}
+.icon-call-back:before {
+    content: "\e708";
+}
+.icon-pen:before {
+    content: "\e70a";
+}
+.icon-home:before {
+    content: "\e70c";
+}
+.icon-call:before {
+    content: "\e70f";
+}
+.icon-info3:before {
+    content: "\e710";
+}
+.icon-icon-4:before {
+    content: "\e712";
+}
+.icon-pound:before {
+    content: "\e715";
+}
+.icon-coment:before {
+    content: "\e716";
+}
+.icon-icon-7:before {
+    content: "\e719";
+}
+.icon-dollar:before {
+    content: "\e71b";
+}
+.icon-briefcase-more:before {
+    content: "\e71d";
+}
+.icon-icon-10:before {
+    content: "\e71f";
+}
+.icon-calculator:before {
+    content: "\e721";
+}
+.icon-briefcase:before {
+    content: "\e722";
+}
+.icon-icon-13:before {
+    content: "\e724";
+}
+.icon-approval:before {
+    content: "\e726";
+}
+.icon-reports:before {
+    content: "\e728";
+}
+.icon-award:before {
+    content: "\e72a";
+}
+.icon-appointment:before {
+    content: "\e72d";
+}
+.icon-document:before {
+    content: "\e72f";
+}
+.icon-heart:before {
+    content: "\e731";
+}
+.icon-clock:before {
+    content: "\e733";
+}
+.icon-map2:before {
+    content: "\e734";
+}
+.icon-plane:before {
+    content: "\e736";
+}
+.icon-documents:before {
+    content: "\e738";
+}
+.icon-treatment:before {
+    content: "\e73a";
+}
+.icon-location:before {
+    content: "\e73b";
+}
+.icon-icocerrar:before {
+    content: "\e73c";
+}
+.icon-facebook:before {
+    content: "\e73d";
+}
+.icon-googleplus:before {
+    content: "\e73e";
+}
+.icon-twitter:before {
+    content: "\e73f";
+}
+.icon-perfil:before {
+    content: "\e740";
+}
+.icon-youtube:before {
+    content: "\e741";
+}
+.icon-burger:before {
+    content: "\e742";
+}
+.icon-pencil:before {
+    content: "\e743";
+}
+.icon-bin:before {
+    content: "\e744";
+}
+.icon-world:before {
+    content: "\e745";
+}
+.icon-hand:before {
+    content: "\e746";
+}
+.icon-list:before {
+    content: "\e747";
+}
+.icon-alert:before {
+    content: "\e748";
+}
+.icon-pause:before {
+    content: "\e749";
+}
+.icon-camera:before {
+    content: "\e74a";
+}
+.icon-group2:before {
+    content: "\e74b";
+}
+.icon-shrine:before {
+    content: "\e74c";
+}
+.icon-bed2:before {
+    content: "\e74d";
+}
+.icon-air-conditioning:before {
+    content: "\e74e";
+}
+.icon-feeding-bottle:before {
+    content: "\e74f";
+}
+.icon-laboratory:before {
+    content: "\e750";
+}
+.icon-baby:before {
+    content: "\e751";
+}
+.icon-rayx:before {
+    content: "\e752";
+}
+.icon-phone-room:before {
+    content: "\e753";
+}
+.icon-whatsapp:before {
+    content: "\e754";
+}
+.icon-help:before {
+    content: "\e755";
+}
+.icon-shop:before {
+    content: "\e756";
+}
+.icon-uvi:before {
+    content: "\e757";
+}
+.icon-credit-card:before {
+    content: "\e758";
+}

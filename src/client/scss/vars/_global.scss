@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+ //== Scaffolding
+ //
+ //## Settings for some of the most global styles.
+
+ //** Background color for `<body>`.
+ $body-bg:               #fff !default;
+ //** Global text color on `<body>`.
+ $text-color:            $gray-dark !default;
+
+ //** Global textual link color.
+ $link-color:            $brand-primary !default;
+ //** Link hover color set via `darken()` function.
+ $link-hover-color:      darken($link-color, 15%) !default;
+ //** Link hover decoration.
+ $link-hover-decoration: underline !default;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+$font-path:               'fonts/';
+
+$font-size-base:          14px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
+//** Spaces
+$space-sm:                7px;
+$space-md:                15px;
+$space-lg:                30px;
+$space-xlg:               60px;
+
+//** Icon
+$icon-bkg-sm:                 16px;
+$icon-bkg-md:                 24px;
+$icon-bkg-lg:                 48px;
+
+//** Horizontal offset for forms and lists.
+$component-offset-horizontal: 180px !default;
+//** Text muted color
+$text-muted:                  $gray-light !default;
+//** Abbreviations and acronyms border color
+$abbr-border-color:           $gray-light !default;
+//** Blockquote small color
+$blockquote-small-color:      $gray-light !default;
+//** Blockquote font size
+$blockquote-font-size:        ($font-size-base * 1.25) !default;
+//** Blockquote border color
+$blockquote-border-color:     $gray-lighter !default;
+//** Headings small color
+$headings-small-color:        $gray-light !default;
+//** Horizontal line color.
+$hr-border:                   $gray-lighter !default;
+//** Page header border color
+$page-header-border-color:    $gray-lighter !default;
+//** Width of horizontal description list titles
+$dl-horizontal-offset:        $component-offset-horizontal !default;
+//** Point at which .dl-horizontal becomes horizontal
+$dl-horizontal-breakpoint:    $grid-float-breakpoint !default;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                 $brand-primary !default;
+$link-decoration:            none !default;
+$link-hover-color:           darken($link-color, 15%) !default;
+$link-hover-decoration:      underline !default;
+
+// Define common padding and border radius sizes and more.
+
+$line-height-lg:         (4 / 3) !default;
+$line-height-sm:         1.5 !default;
+
+$border-width:              1px  !default;
+$border-radius-base:        0    !default;
+$border-radius-large:       6px  !default;
+$border-radius-small:       3px  !default;
+
+
+// Image thumbnails
+
+$thumbnail-padding:           4px !default;
+$thumbnail-bg:                $body-bg !default;
+$thumbnail-border:            $border-width !default;
+$thumbnail-border-color:      #ddd !default;
+$thumbnail-border-radius:     $border-radius-base !default;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-padding-x:                  50px !default;
+$btn-padding-y:                  10px  !default;
+$btn-font-weight:                normal !default;
+
+$btn-font-weight:                normal !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             $btn-primary-bg !default;
+
+$btn-secondary-color:            $gray-dark !default;
+$btn-secondary-bg:               #fff !default;
+$btn-secondary-border:           #ccc !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                $btn-info-bg !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             $btn-success-bg !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             $btn-warning-bg !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              $btn-danger-bg !default;
+
+$btn-link-disabled-color:        $gray-light !default;
+
+$btn-padding-x-xs:               4px    !default;
+$btn-padding-y-xs:               1px    !default;
+
+$btn-padding-x-sm:               12px   !default;
+$btn-padding-y-sm:               4px    !default;
+
+$btn-padding-x-lg:               20px   !default;
+$btn-padding-y-lg:               12px   !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:              $border-radius-base !default;
+$btn-border-radius-lg:           $border-radius-large !default;
+$btn-border-radius-sm:           $border-radius-small !default;
+
+// Forms
+
+$input-padding-x:                12px !default;
+$input-padding-y:                6px  !default;
+
+$input-bg:                       #fff !default;
+$input-bg-disabled:              $gray-lighter !default;
+
+$input-color:                    $gray !default;
+$input-border-color:             #ccc !default;
+$input-btn-border-width:         $border-width !default; // For form controls and buttons
+$input-box-shadow:               inset 0 1px 1px rgba(0,0,0,.075) !default;
+
+$input-border-radius:            $border-radius-base !default;
+$input-border-radius-lg:         $border-radius-large !default;
+$input-border-radius-sm:         $border-radius-small !default;
+
+$input-border-focus:             #66afe9 !default;
+$input-box-shadow-focus:         rgba(102,175,233,.6) !default;
+
+$input-color-placeholder:        #999 !default;
+
+$input-padding-x-sm:             30px !default;
+$input-padding-y-sm:             4px  !default;
+
+$input-padding-x-lg:             70px !default;
+$input-padding-y-lg:             12px !default;
+
+// Form Inputs
+// Commented for now as the new design does not have input heights (just one minimalist line)
+
+//$input-height:                   (($font-size-base * $line-height) + ($input-padding-y * 2)) !default;
+//$input-height-lg:                (($font-size-lg * $line-height-lg) + ($input-padding-y-lg * 2)) !default;
+//$input-height-sm:                (($font-size-sm * $line-height-sm) + ($input-padding-y-sm * 2)) !default;
+
+$form-group-margin-bottom:       $space-sm !default;
+
+$input-group-addon-bg:           $gray-lighter !default;
+$input-group-addon-border-color: $input-border-color !default;
+
+$cursor-disabled:                not-allowed !default;
