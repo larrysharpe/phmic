@@ -7,13 +7,15 @@
 >More details about the styles and patterns used in this app can be found in my [Angular Style Guide](https://github.com/johnpapa/angularjs-styleguide) and the [Angular Patterns: Clean Code](http://jpapa.me/ngclean) course at [Pluralsight](http://pluralsight.com/training/Authors/Details/john-papa) and working in teams.
 
 ## What is different from John Papa's HotTowel?
+All the credits for the Gulp Tasks go to the amazing John Papa's HotTowel Generator. I only made some tweaks to have a cleaner starting points for my next projects.
+Here are the main differences from the original:
 - SASS instead of LESS. with dynamic sass import into the main styles.scss for any .scss file that resides inside the app folder
 - Angular 1.5, Angular Animate 1.5, Angular-mocks 1.5, Angular-Sanatize 1.5
 - Remove toastr and jQuery dependency
 - add angular-moment module
 - cleaned layout module to a simple shell.html
-- all gulp task are in their respective file for easier configuration
-- Starter style framework that imports from Bootstrap 3 the basics (normalize, scaffolding, grid, mixins...) with a demo ready folder to start styling elements
+- the gulp tasks are split in their respective file for easier configuration and maintenance
+- Starter Style framework that imports from Bootstrap 3 only the basics (normalize, scaffolding, grid, mixins...). It has demo ready folder to be able to quickly start styling and visualizing 
 
 ## Prerequisites
 
@@ -178,10 +180,24 @@ The `blocks.router` module contains a routing helper module that assists in addi
 
 ### Styles
 
+#### Install Bootstrap Sass
+
+This project import the basic sass files from Bootstrap 3, you first need to install its dependency.
+- `cd src/client/scss` 
+- `bower install`
+
+#### Build Styles
 - `gulp build-styles`
 
     Compile sass files to CSS, add vendor prefixes
 
+#### Demo styles guide for the project
+
+If you want to first style the global elements for your site (buttons, forms, thumbnails...) and create a style guide
+- from the scss folder cd into the _demo folder `cd _demo`
+- install npm package `npm install`
+- run the gulp task `gulp sass` or `gulp sass-watch`
+You can then edit the index.html file from the _demo folder, include your elements and start building your styles guide. 
 
 ### Angular JS code
 
@@ -266,4 +282,4 @@ The `blocks.router` module contains a routing helper module that assists in addi
 
 ## License
 
-MIT
+GNU GENERAL PUBLIC LICENSE v2
