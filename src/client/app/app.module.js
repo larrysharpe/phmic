@@ -3,9 +3,9 @@
 
     angular.module('app', [
         'app.core',
-        'app.widgets',
-        'app.home',
-        'app.layout'
+        'app.shared',
+        'app.layout',
+        'app.home'
     ]);
 
 })();

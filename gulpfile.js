@@ -59,7 +59,7 @@
     * --debug-brk or --debug
     * --nosync
     */
-    gulp.task('serve-build', ['package-optimize'], function() {
+    gulp.task('serve-build', [], function() {
         serve(gulp, plugins, config, args, false /*isDev*/, false /* specRunner */);
     });
 

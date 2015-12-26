@@ -13,7 +13,7 @@ module.exports = function (gulp, plugins, config, args, browserSync) {
          var myPipe =  gulp
              .src(config.path.htmltemplates)
              .pipe(plugins.if(args.verbose, plugins.bytediff.start()))
-             .pipe(plugins.minifyHtml({empty: true}))
+             .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments:true}))
              .pipe(plugins.if(args.verbose, plugins.bytediff.stop(bytediffFormatter)))
              .pipe(plugins.angularTemplatecache(
                  config.path.templateCache.file,

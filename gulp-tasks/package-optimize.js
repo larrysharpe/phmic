@@ -40,7 +40,9 @@ module.exports = function (gulp, plugins, config, args, browserSync) {
             .pipe(assets) // Gather all assets from the html with useref
             // Get the css
             .pipe(cssFilter)
-            .pipe(plugins.minifyCss())
+            .pipe(plugins.sourcemaps.init())
+            .pipe(plugins.cssnano())
+            .pipe(plugins.sourcemaps.write('.'))
             .pipe(cssFilter.restore())
             // Get the custom javascript
             .pipe(jsAppFilter)
