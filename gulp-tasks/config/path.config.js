@@ -54,6 +54,9 @@ module.exports = function(config) {
             bower.directory + 'angular-mocks/angular-mocks.js',
             client + 'mocks/**/*.js'
         ],
+        customjs:[
+            assets + 'js/modernizr-custom.js'
+        ],
         /**
          * optimized files
          */

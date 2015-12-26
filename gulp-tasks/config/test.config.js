@@ -21,6 +21,7 @@ module.exports = function(config) {
         var options = {
             files: [].concat(
                 bowerFiles,
+                path.customjs,
                 config.path.specHelpers,
                 path.app + '**/*.module.js',
                 path.app + '**/*.js',

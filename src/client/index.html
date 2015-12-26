@@ -24,6 +24,10 @@
     <!-- endbuild -->
 </head>
 <body>
+    <div id="splash"></div>
+    <!-- build:js assets/js/modernizr-custom.js -->
+    <script src="/src/client/assets/js/modernizr-custom.js"></script>
+    <!-- endbuild -->
     <div>
         <div ng-include="::'app/layout/shell.html'"></div>
     </div>
@@ -37,6 +41,8 @@
     <script src="/lib/angular-animate/angular-animate.js"></script>
     <script src="/lib/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
+    <!-- customjs:js -->
+    <!-- endinject -->
     <!-- endbuild -->
 
     <!-- build:js assets/js/app.js -->
