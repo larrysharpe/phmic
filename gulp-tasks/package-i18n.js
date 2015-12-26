@@ -10,8 +10,8 @@ module.exports = function (gulp, plugins, config, args, onSharedModule, configSh
         log('Copying locals...');
 
         var myPipe = gulp
-            .src(config.path.i18n + '**/*', {base: './src/client/locales'})
-            .pipe(gulp.dest(config.path.build + 'json/'));
+            .src(config.path.i18n + '**/*', {base: './src/client'})
+            .pipe(gulp.dest(config.path.build));
 
         if (typeof browserSync !== 'undefined') {
             myPipe.on('end', browserSync.reload);

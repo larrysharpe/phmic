@@ -3,12 +3,12 @@
 
     var core = angular.module('app.core');
 
-    var config = {
+    var appConfig = {
         appErrorPrefix: '[silentDrop Error] ',
         appTitle: 'silentDrop'
     };
 
-    core.value('config', config);
+    core.value('appConfig', appConfig);
 
     core.config(configure);
 
@@ -18,8 +18,8 @@
         if ($logProvider.debugEnabled) {
             $logProvider.debugEnabled(true);
         }
-        exceptionHandlerProvider.configure(config.appErrorPrefix);
-        routerHelperProvider.configure({docTitle: config.appTitle + ': '});
+        exceptionHandlerProvider.configure(appConfig.appErrorPrefix);
+        routerHelperProvider.configure({docTitle: appConfig.appTitle + ': '});
     }
 
 })();

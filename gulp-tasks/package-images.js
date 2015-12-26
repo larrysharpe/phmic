@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config) {
     return function() {
         log('Compressing and copying images');
         var imgSrc = [config.path.img + '**/*.*', '!' + config.path.img + '/temp/**/*.*'];
-        var imgDst = config.path.build + 'img';
+        var imgDst = config.path.build + 'assets/img';
 
         return gulp
             .src(imgSrc)

@@ -2,6 +2,7 @@ module.exports = function(config) {
     'use strict';
 
     var client = './src/client/';
+    var assets = client + 'assets/';
     var server = './src/server/';
     var clientApp = client + 'app/';
     var report = './report/';
@@ -29,14 +30,14 @@ module.exports = function(config) {
         client: client,
         server:server,
         app: clientApp,
-        css: client + 'css/',
-        fonts: client + 'css/fonts/',
+        css: assets + 'css/',
+        fonts: assets + 'css/fonts/',
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
-        img: client + 'img/',
+        img: assets + 'img/',
         mocks: client + 'mocks/',
         index: client + 'index.html',
-        i18n: client + 'locales/',
+        i18n: assets + 'locales/',
         // app js, with no specs
         js: [
             clientApp + '**/*.module.js',

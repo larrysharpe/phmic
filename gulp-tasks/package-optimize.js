@@ -63,12 +63,16 @@ module.exports = function (gulp, plugins, config, args, browserSync) {
 
             // Replace the file names in the html with rev numbers
             .pipe(plugins.revReplace())
-            .pipe(gulp.dest(config.path.build));
+            .pipe(gulp.dest(config.path.build))
+            .on('end', function() {
+                gulp.src(config.path.build + 'index.html')
+                .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments:true, minifyCSS:true, minifyJS:true}))
+                .pipe(gulp.dest(config.path.build));
 
-        if (typeof browserSync !== 'undefined') {
-            myPipe.on('end', browserSync.reload);
-        }
-
+                if (typeof browserSync !== 'undefined') {
+                    browserSync.reload();
+                }
+            });
         return myPipe;
     };
 };
