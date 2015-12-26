@@ -282,4 +282,4 @@ You can then edit the index.html file from the _demo folder, include your elemen
 
 ## License
 
-GNU GENERAL PUBLIC LICENSE v2
+MIT
