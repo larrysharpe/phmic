@@ -2,6 +2,7 @@
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
+
 // Extra small screen / phone
 //** Deprecated `$screen-xs` as of v3.0.1
 $screen-xs:                  480px !default;
@@ -70,3 +71,15 @@ $container-md:                 $container-desktop !default;
 $container-large-desktop:      (1140px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
+
+// Custom intermediate BreakPoints
+$screen-xs-1:                  600px;      // Tweakpoint
+$screen-sm-min:                $screen-sm;   // ** Tablet
+$screen-sm-2:                  860px;     // Tweakpoint
+$screen-sm-3:                  902px;     // Tweakpoint
+$screen-md-min:                $screen-md;   // ** Desktop
+$screen-md-2:                  1050px;    // Tweakpoint
+$screen-md-3:                  1120px;    // Tweakpoint
+$screen-lg-min:                $screen-lg;  // ** large desktops
+
+$screen-sm-h:600px;

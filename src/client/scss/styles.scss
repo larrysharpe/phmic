@@ -1,19 +1,30 @@
 @charset "UTF-8";
 
-@import 'mixins';
-@import 'vars';
+/*
+Order of CSS properties
+1. Where is the box? (position, z-index, margins/padding)
+2. What kind of a box is it? (display, box-sizing)
+3. How big is the box? (width, height)
+4. Box shadows, borders, etc
+5. Backgrounds
+6. Typography
+*/
 
-@import 'bootstrap/bootstrap.imports';
+@import "mixins";
+@import "vars";
 
-@import 'core/scaffolding';
-@import 'core/fonts';
-@import 'core/icons';
+@import "bootstrap/bootstrap.imports";
 
-@import 'globals/fonts';
-@import 'globals/helpers';
-@import 'globals/icons-components';
-@import 'globals/buttons';
-@import 'globals/forms';
+@import "core/scaffolding";
+@import "core/fonts";
+@import "core/icons";
+
+@import "globals/helpers";
+@import "globals/icons-components";
+@import "globals/buttons";
+@import "globals/forms";
+
+@import "components/my-css-component";
 
 // Dynamic inject any .scss file from our app folder
 // injector

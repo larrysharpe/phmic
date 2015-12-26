@@ -1,11 +1,5 @@
 
-/*
-    Redondear
-
-*/
-
 .tablet{
-
     display: tablet;
 
     .tablet-cell{
@@ -24,6 +18,18 @@
 
 .body-content-wrapper{
     max-width: 1110px;
+}
+
+.scroll{
+    @include scroll();
+}
+
+.no-scroll, .hide-scroll {
+    overflow: hidden !important;
+}
+
+.no-transition{
+    transition: none !important;
 }
 
 /*

@@ -1,0 +1,9 @@
+@mixin scroll() {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin shadow($h-offset:1px, $y-offset:10px, $blur-radius:38px, $spread-radius:13px, $color:rgba(0, 0, 0, 0.35)) {
+    box-shadow: $h-offset $y-offset $blur-radius $spread-radius $color;
+}

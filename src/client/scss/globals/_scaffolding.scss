@@ -1,0 +1,29 @@
+// Addon to Bootstrap Scafoolding
+
+*:focus{
+    outline: none;
+}
+
+// Avoid flash of img border before src is set from ng-src
+[ng-src]:not([src]) {
+    opacity: 0;
+}
+
+.c-hamburger {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak{
+    display: none !important;
+}
+
+a[ ng-click ], a[role=button] {
+    cursor: pointer;
+}

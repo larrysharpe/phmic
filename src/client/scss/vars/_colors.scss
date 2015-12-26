@@ -3,19 +3,23 @@
  //  COLORS
  // -----------------------------------------------
 
- // New range of colors
+$orange:                    #ff8000;
+$orange-hover:              darken($orange, 30%);
+$light:                     #e2e2e2;
+$gray:                      #444;
+$gray-light:                #ccc;
+$gray-lighter:              #eee;
+$green:                     #7fbaa4;
+$blue:                      #2980b9;
+$red:                       #bb2629;
 
- $color-cyan:           #0079c8 !default;;
- $color-ligthgray:      #e6e6e6 !default;
- $color-teal:           #008386 !default;
- $color-burgundy:       #942151 !default;
- $color-purple:         #6a2ca1 !default;
- $color-violet:         #a4219b !default;
- $color-green:          #18542c !default;
- $color-green-light:    #007a3d !default;
- $color-green-pistachio:#678004 !default;;
- $color-orange:         #ef8900 !default;
- $brand-pink:           #e60e68 !default;
+$brand-primary:             $orange !default;
+$brand-secondary:           $orange-hover !default;
+$inverse:                   $light !default;
+$brand-success:             $green !default;
+$brand-info:                $blue !default;
+$brand-warning:             $orange !default;
+$brand-danger:              $red !default;
 
  //== Colors interactive
  $gray-interactive-light:    #ecf6ff !default;
@@ -24,12 +28,6 @@
  $blue-interactive-sky:      #dbf1fa !default;
  $flesh-interactive-light:   #efffda !default;
  $flesh-interactive-lighter: #fdf6dd !default;
-
- $brand-primary:          $color-cyan !default;
- $brand-success:   $color-green-light !default;
- $brand-info:             $color-teal !default;
- $brand-warning:        $color-orange !default;
- $brand-danger:       $color-burgundy !default;
 
  $brand-item-activated: lighten( $brand-primary, 35% )  !default;
 

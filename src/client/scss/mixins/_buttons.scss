@@ -3,96 +3,111 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-@mixin button-variant($color, $background, $border,  $background-hover:"") {
-  color: $color;
-  background-color: $background;
-  border-color: $border;
+@mixin button-variant($color, $background, $hover-background:"", $active-background:"", $disabled-background: #eee, $border-color:white) {
+    color: $color;
+    background-color: $background;
+    border-color: $border-color;
 
-  &:focus,
-  &.focus {
-    @if $background != transparent  {
-        color: $color;
-    } @else {
-        color: darken($color, 10%);
-    }
-    @if $background-hover != ""  {
-        background-color: $background-hover;
-    } @else {
-        background-color: darken($background, 10%);
-    }
-    border-color: darken($border, 25%);
-  }
-  &:hover {
-    @if $background != transparent  {
-        color: $color;
-    } @else {
-        color: darken($color, 10%);
-    }
-    @if $background-hover != ""  {
-        background-color: $background-hover;
-    } @else {
-        background-color: darken($background, 10%);
-    }
-    border-color: darken($border, 12%);
-  }
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    @if $background != transparent {
-        color: $color;
-    } @else {
-        color: darken($color, 10%);
-    }
-    @if $background-hover != "" {
-        background-color: $background-hover;
-    } @else {
-        background-color: darken($background, 10%);
-    }
-    border-color: darken($border, 12%);
-
-    &:hover,
     &:focus,
     &.focus {
-      color: $color;
-      background-color: darken($background, 17%);
-          border-color: darken($border, 25%);
+        @if $background != transparent {
+            color: $color;
+        } @else {
+            color: darken($color, 10%);
+        }
+        @if $hover-background != "" {
+            background-color: $hover-background;
+        } @else {
+            background-color: darken($background, 10%);
+        }
+        border-color: darken($border-color, 25%);
     }
-  }
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    background-image: none;
-  }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: $background;
-          border-color: $border;
+    &:hover {
+        @if $background != transparent {
+            color: $color;
+        } @else {
+            color: darken($color, 10%);
+        }
+        @if $hover-background != "" {
+            background-color: $hover-background;
+        } @else {
+            background-color: darken($background, 10%);
+        }
+        border-color: darken($border-color, 12%);
     }
-  }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        @if $background != transparent {
+            color: $color;
+        } @else {
+            color: darken($color, 10%);
+        }
+        @if $active-background != "" {
+            background-color: $active-background;
+        } @else {
+            background-color: darken($background, 10%);
+        }
+        border-color: darken($border-color, 12%);
 
-  .badge {
-    color: $background;
-    background-color: $color;
-  }
-
-  .arrow-inner {
-    @if $background != transparent  {
-        color: $color;
-    } @else {
-        color: darken($color, 10%);
+        &:hover,
+        &:focus,
+        &.focus {
+            color: $color;
+            background-color: darken($background, 17%);
+            border-color: darken($border-color, 25%);
+        }
     }
-    padding: 0 0 0 10px;
-  }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &.focus {
+            background-color: $background;
+            border-color: $border-color;
+        }
+    }
+
+    .badge {
+        color: $background;
+        background-color: $color;
+    }
+
+    .arrow-inner {
+        @if $background != transparent {
+            color: $color;
+        } @else {
+            color: darken($color, 10%);
+        }
+        padding: 0 0 0 10px;
+    }
 }
 
 // Button sizes
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}
+
+// Social button variants
+@mixin social-button-variant($color, $background) {
+    color: $color;
+    background-color: $background;
+
+    &:hover,
+    &:focus {
+        background-color: mix($background, white, 80%);
+    }
+    &:active,
+    &.active {
+        background-color: mix($background, black, 85%);
+    }
 }

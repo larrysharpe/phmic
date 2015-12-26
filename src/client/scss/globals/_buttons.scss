@@ -15,10 +15,12 @@
     touch-action: manipulation;
     cursor: pointer;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 2px solid transparent;
+    border: 1px solid white;
     white-space: nowrap;
+    -webkit-font-smoothing: subpixel-antialiased;
     @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $line-height-base, $btn-border-radius);
     @include user-select(none);
+    transition: border .25s linear, color .25s linear, background-color .25s linear;
 
     &,
     &:active,
@@ -91,49 +93,51 @@ a.btn {
 
 // Alternate buttons
 // --------------------------------------------------
-
-.btn-primary {
-    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+.btn-default {
+    @include button-variant($btn-default-color, $btn-default-bg, $btn-hover-bg, $btn-active-bg, #eee, $btn-default-border);
 }
 
-.btn-primary-inverse {
-    @include button-variant($btn-primary-bg, transparent, $btn-primary-border);
-}
-
-.btn-inverse-white {
-    @include button-variant($btn-primary-color, transparent, $btn-primary-color, gray);
-}
-
-.btn-secondary {
-    @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
-}
-
-.btn-secondary-inverse {
-    @include button-variant($btn-secondary-color, transparent, $btn-secondary-border);
-}
-
-.btn-secondary-inverse-white {
-    @include button-variant($btn-secondary-color, transparent, $btn-secondary-border, gray);
-}
-
+//.btn-primary {
+//    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+//}
+//
+//.btn-primary-inverse {
+//    @include button-variant($btn-primary-bg, transparent, $btn-primary-border);
+//}
+//
+//.btn-inverse-white {
+//    @include button-variant($btn-primary-color, transparent, $btn-primary-color, gray);
+//}
+//
+//.btn-secondary {
+//    @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+//}
+//
+//.btn-secondary-inverse {
+//    @include button-variant($btn-secondary-color, transparent, $btn-secondary-border);
+//}
+//
+//.btn-secondary-inverse-white {
+//    @include button-variant($btn-secondary-color, transparent, $btn-secondary-border, gray);
+//}
 
 
 // Success appears as green
-.btn-success {
-    @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-}
-// Info appears as blue-green
-.btn-info {
-    @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-}
-// Warning appears as orange
-.btn-warning {
-    @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-// Danger and error appear as red
-.btn-danger {
-    @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-}
+//.btn-success {
+//    @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+//}
+//// Info appears as blue-green
+//.btn-info {
+//    @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+//}
+//// Warning appears as orange
+//.btn-warning {
+//    @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+//}
+//// Danger and error appear as red
+//.btn-danger {
+//    @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+//}
 
 
 // Link buttons
@@ -179,6 +183,9 @@ a.btn {
 // Button Sizes
 // --------------------------------------------------
 
+.btn-hg {
+    @include button-size($btn-padding-y-xg, $btn-padding-x-xg, $btn-font-size-hg, $btn-line-height-hg, $border-radius-large);
+}
 .btn-lg {
     // line-height: ensure even-numbered height of button next to large input
     @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-large, $line-height-lg, $btn-border-radius-lg);
