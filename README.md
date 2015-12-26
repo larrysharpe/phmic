@@ -15,7 +15,8 @@ Here are the main differences from the original:
 - add angular-moment module
 - cleaned layout module to a simple shell.html
 - the gulp tasks are split in their respective file for easier configuration and maintenance
-- Starter Style framework that imports from Bootstrap 3 only the basics (normalize, scaffolding, grid, mixins...). It has demo ready folder to be able to quickly start styling and visualizing 
+- Starter Style framework that imports from Bootstrap 3 only the basics (normalize, scaffolding, grid, mixins...). It has demo ready folder to be able to quickly start styling and visualizing
+- gulp-cssnano instead of gulp-minify-css (deprecated), gulp-htmlmin instead of gulp-minify-html (deprecated)
 
 ## Prerequisites
 
