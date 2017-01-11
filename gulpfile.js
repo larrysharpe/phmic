@@ -33,6 +33,7 @@
         .task('build-templatecache', getTask('build-templatecache'))
         .task('build-inject', gulpsync.sync(['inject-wiredep', 'inject-jsAppDep', 'inject-styles']))
         .task('build', gulpsync.sync(['test', 'build-inject', 'build-fonts']),getTask('build'))
+        .task('build-no-test', gulpsync.sync(['build-inject', 'build-fonts']),getTask('build'))
         .task('build-specs', ['build-templatecache'], getTask('build-specs'))
         .task('package-i18n', getTask('package-i18n'))
         .task('package-images', getTask('package-images'))
@@ -49,7 +50,12 @@
     * --nosync
     */
 
-    gulp.task('serve-dev', ['build'], function() {
+    gulp.task('serve-dev', ['build-no-test'], function() {
+        // serve(true /*isDev*/);
+        serve(gulp, plugins, config, args, true /*isDev*/, false /* specRunner */);
+    });
+
+    gulp.task('serve-dev-test', ['build'], function() {
         // serve(true /*isDev*/);
         serve(gulp, plugins, config, args, true /*isDev*/, false /* specRunner */);
     });
