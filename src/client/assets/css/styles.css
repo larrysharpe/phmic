@@ -2639,6 +2639,7 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%; }
 
+/*Navbar*/
 .navbar-default {
   background-color: #ffffff;
   border-color: #ffffff; }
@@ -2680,3 +2681,5 @@ input[type="button"].btn-block {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #000000;
     background-color: #ffffff; } }
+
+/*misc*/
