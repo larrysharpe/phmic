@@ -21,7 +21,7 @@
 
     var appConfig = {
         appErrorPrefix: '[app Error] ',
-        appTitle: 'app title',
+        appTitle: 'Pharmacists Mutual',
         browserSupport   : {
             animations : Modernizr.cssanimations,
             transitions: Modernizr.csstransitions
@@ -41,7 +41,7 @@
             $logProvider.debugEnabled(true);
         }
         exceptionHandlerProvider.configure(appConfig.appErrorPrefix);
-        routerHelperProvider.configure({docTitle: appConfig.appTitle + ': '});
+        routerHelperProvider.configure({docTitle: appConfig.appTitle});
     }
 
 })(window.Modernizr);

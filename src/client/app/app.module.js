@@ -5,7 +5,8 @@
         'app.core',
         'app.shared',
         'app.layout',
-        'app.home'
+        'app.home',
+        'app.dashboard'
     ]);
 
 })();

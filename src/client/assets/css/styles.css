@@ -2683,3 +2683,14 @@ input[type="button"].btn-block {
     background-color: #ffffff; } }
 
 /*misc*/
+.site-logo {
+  width: 240px;
+  height: 80px; }
+
+#content {
+  margin-top: 100px; }
+
+#home-view {
+  background: url(/assets/img/StockSnap_ZK4IUPNIUE.jpg);
+  background-size: cover;
+  min-height: 500px; }
