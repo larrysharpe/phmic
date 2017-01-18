@@ -24,7 +24,8 @@
     "angular": "1.6.1",
     "angular-moment": "~0.10.3",
     "angular-bootstrap": "^2.4.0",
-    "bootstrap-css-only": "^3.3.7"
+    "bootstrap-css-only": "^3.3.7",
+    "components-font-awesome": "^4.7.0"
   },
   "resolutions": {
     "angular": "~1.5.0"

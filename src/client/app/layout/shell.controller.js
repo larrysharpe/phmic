@@ -5,31 +5,21 @@
         .module('app.layout')
         .controller('ShellController', ShellController);
 
-    ShellController.$inject = ['$rootScope', '$timeout', 'appConfig', 'logger'];
+    ShellController.$inject = ['$rootScope', '$timeout', 'appConfig', 'logger', '$uibModal'];
     /* @ngInject */
-    function ShellController($rootScope, $timeout, appConfig, logger) {
-        var vm = this;
-        vm.busyMessage = 'Please wait ...';
-        vm.isBusy = true;
-        $rootScope.showSplash = true;
-        vm.navline = {
-            title: appConfig.appTitle,
-            text: 'Created by John Papa',
-            link: 'http://twitter.com/john_papa'
+    function ShellController($rootScope, $timeout, appConfig, logger, $uibModal) {
+        var $ctrl = this;
+        var loginModalOptions = {
+            controller: 'LoginModalController',
+            controllerAs: '$ctrl',
+            size: 'md',
+            templateUrl: '/app/components/modals/login/loginmodal.html'
         };
 
-        activate();
-
-        function activate() {
-            logger.success(appConfig.appTitle + ' loaded!', null);
-            hideSplash();
+        $ctrl.openLoginModal = function (){
+            $uibModal.open(loginModalOptions);
         }
 
-        function hideSplash() {
-            //Force a 1 second delay so we can see the splash.
-            $timeout(function() {
-                $rootScope.showSplash = false;
-            }, 1000);
-        }
     }
+
 })();

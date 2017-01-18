@@ -13,19 +13,13 @@
                         <h2 content-box-title>Policy Details</h2>
                     </div>
                     <div class="content-box-body">
-                        <h3>Select A Policy</h3>
-                        <p>
-                            <select
-                                ng-options="p.name + ' ' + p.num for p in $ctrl.policies"
-                                ng-model="$ctrl.selectedPolicy"></select>
-                        </p>
-                        <div ng-hide="!$ctrl.selectedPolicy">
-                            <h3>{{$ctrl.selectedPolicy.name}} Policy</h3>
+                        <div ng-hide="!$ctrl.policy">
+                            <h3>{{$ctrl.policy.name}} Policy</h3>
                             <p>
-                                {{$ctrl.selectedPolicy.summary}}
+                                {{$ctrl.policy.summary}}
                             </p>
                             <p class="text-right">
-                                <a href="/autopolicy" class="btn btn-primary">See More Details</a>
+                                <a class="btn btn-primary" href="/autopolicy">See More Details</a>
                             </p>
                         </div>
                     </div>

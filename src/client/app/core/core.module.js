@@ -5,6 +5,7 @@
         .module('app.core', [
             'ngAnimate', 'ngSanitize',
             'blocks.exception', 'blocks.logger', 'blocks.router',
-            'ui.router', 'angularMoment'
+            'ui.router', 'angularMoment', 'app.loginmodal', 'app.acctcreatemodal',
+            'app.autopolicy'
         ]);
 })();

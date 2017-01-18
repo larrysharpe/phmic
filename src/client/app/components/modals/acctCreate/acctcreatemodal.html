@@ -1,0 +1,126 @@
+<div>
+    <b>loginFormSection: </b>{{$ctrl.loginFormSection}}<br>
+    <b>acctLockedSectionOpen: </b>{{$ctrl.acctLockedSectionOpen}}<br>
+    <b>logginInSectionOpen: </b>{{$ctrl.logginInSectionOpen}}
+</div>
+
+<div>
+
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Set Up Account</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+            <div>
+                <span ng-hide="$ctrl.currentStep > $ctrl.totalSteps">Step {{$ctrl.currentStep}} of {{$ctrl.totalSteps}}</span>
+                <span ng-hide="$ctrl.currentStep <= $ctrl.totalSteps">Done!</span>
+            </div>
+            <div class="step-indicator-bar">
+                <div class="step-indicator-bar-fill" style="width:{{$ctrl.fillWidth}}%"></div>
+            </div>
+        </div>
+
+        <!-- Step sections -->
+
+
+        <section ng-hide="$ctrl.currentStep !== 1">
+            <p>
+                Before we set up your account, we need just a little information to make sure we get everything right.
+            </p>
+            <p>
+                Customer Number  <a href="">i</a> <br>
+                <input type="text" placeholder="enter customer number" ng-model="$ctrl.acct.customerno">
+            </p>
+            <p>
+                Email Address<br>
+                <input type="email" placeholder="enter email" ng-model="$ctrl.acct.email">
+            </p>
+        </section>
+        <section ng-hide="$ctrl.currentStep !== 2">
+            <p>
+                Great! We sent a secret code to {{$ctrl.acct.email}}. Use this one time code to validate that you have access to the email address on file.
+            </p>
+            <div>
+                Secret Code<br>
+                <input type="text" placeholder="enter the secret code">
+                <br>
+                <a href="">Didn't get the code?</a>
+            </div>
+
+        </section>
+        <section ng-hide="$ctrl.currentStep !== 3">
+            <p>That's it! Now choose a secure password so that you don't have to go through all of this stuff next time</p>
+            <div>
+                Create a password<br>
+                <input type="password" placeholder="enter a secure password">
+                password strength
+                <div class="pw-strenght">
+                    <div></div>
+                </div>
+            </div>
+            <ul>
+                <li>Increase password length </li>
+                <li>Add an uppercase letter </li>
+                <li>Add a number</li>
+                <li>Don't use the word password</li>
+            </ul>
+        </section>
+        <section ng-hide="$ctrl.currentStep !== 4">
+            <p>
+                Okay last step. You need some way to recovery your password in case you forget it.
+            </p>
+            <p>
+                Create a security question answer a security question
+            </p>
+            <p>
+                Not feeling very creative? No problem. You can select one of our pre-defined questions.
+            </p>
+            <p>
+                Choose a security question
+                <select>
+                    <option>who was your first crush?</option>
+                </select>
+            </p>
+            <p>
+                Answer your question
+                <input type="text" placeholder="enter an answer to your question">
+            </p>
+        </section>
+        <section ng-hide="$ctrl.currentStep !== 5">
+            <p>
+                That's it for account setup. We're logging into your account now.
+            </p>
+        </section>
+
+        <!-- Controls -->
+        <p ng-hide="!$ctrl.showStepControls">
+            <button class="btn btn-danger" ng-click="$ctrl.cancelCreation()">
+                Cancel Account Creation
+            </button>
+            <button class="btn btn-primary" ng-hide="!$ctrl.showNextStep()" ng-click="$ctrl.nextStep()">
+                Continue to Next Step
+            </button>
+            <button class="btn btn-primary" ng-hide="!$ctrl.showLastStep()" ng-click="$ctrl.nextStep()">
+                Continue to Last Step
+            </button>
+            <button class="btn btn-primary" ng-hide="!$ctrl.showComplete()" ng-click="$ctrl.nextStep()">
+                Complete Set Up
+            </button>
+        </p>
+
+        <div ng-hide="!$ctrl.showCancelConfirmation">
+            <p>Are you sure? If you exit now, none of your progress will be saved.</p>
+            <p>
+                <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
+                    Exit Without Saving
+                </button>
+                <button class="btn btn-primary" ng-click="$ctrl.closeConfirmation()">
+                    Resume Account Setup
+                </button>
+            </p>
+        </div>
+    </div>
+
+</div>

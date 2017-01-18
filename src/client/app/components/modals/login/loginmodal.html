@@ -1,0 +1,76 @@
+<div>
+    <b>loginFormSection: </b>{{$ctrl.loginFormSection}}<br>
+    <b>acctLockedSectionOpen: </b>{{$ctrl.acctLockedSectionOpen}}<br>
+    <b>logginInSectionOpen: </b>{{$ctrl.logginInSectionOpen}}
+</div>
+
+<section ng-class="['login-form-section', $ctrl.loginFormSection]">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Log In</h3>
+        <a href="" ng-click="$ctrl.closeModal()" class="modal-close-btn"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+    </div>
+    <div class="modal-body" id="modal-body">
+       <form class="loginmodalform">
+           <p>First time here?</p>
+           <p>
+               <button class="btn btn-warning" ng-click="$ctrl.setupAcct()">
+                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                   Set Up Account
+               </button>
+           </p>
+           <p>
+               Otherwise, sign in below.
+           </p>
+           <p>
+               Email <br>
+               <input type="text" placeholder="enter email" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}">
+           </p>
+           <p>
+               Password <br>
+               <input type="password" placeholder="enter password" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}"> <br>
+           </p>
+           <p>
+               <a href="">Need Help? Click here.</a>
+           </p>
+           <p>
+               <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
+                   <i class="fa fa-times" aria-hidden="true"></i>
+                   Go Back To PMIC
+               </button>
+               <button class="btn btn-primary" ng-click="$ctrl.attemptLogin()">
+                   <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+                   Log In
+               </button> ({{$ctrl.loginattempts}})
+           </p>
+       </form>
+    </div>
+</section>
+
+
+<section ng-class="['logging-in-section', 'modal-skin-alt', $ctrl.logginInSectionOpen]">
+    <p>Logging you in..</p>
+    <p>
+        <a href="" ng-click="$ctrl.loginFailed()">Login Failed</a>
+    </p>
+</section>
+
+<section ng-class="['acct-locked-section', 'modal-skin-alt', $ctrl.acctLockedSectionOpen]">
+    <p>
+        Account temporarily locked. <br>
+        Due to too many incorrect password attempts, we've temporarily locked your account. This is for your protection.
+    </p>
+    <p>
+        If you need assistance accessing your account, please contact our Members Service Representatives.
+    </p>
+    <p class="counter"
+       value="$ctrl.retryValue"
+       to="$ctrl.retryTarget">
+        You can try again in xx minutes.
+    </p>
+    <p>
+        (515) 295-xxxx ext. xxxx.
+    </p>
+    <p>
+        <button class="btn btn-danger" ng-click="$ctrl.closeModal()">Go Back To PhMIC</button>
+    </p>
+</section>

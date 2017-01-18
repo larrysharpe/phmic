@@ -2690,7 +2690,81 @@ input[type="button"].btn-block {
 #content {
   margin-top: 100px; }
 
+.content-box {
+  border: 3px #000 solid;
+  overflow: auto; }
+
+.content-box-header {
+  background: #999;
+  border-bottom: 3px solid #000;
+  color: #fff;
+  overflow: auto;
+  padding: 0 10px; }
+
+.content-box-body {
+  padding: 0 10px; }
+
+.content-box {
+  border: 3px #000 solid;
+  overflow: auto; }
+
+.content-box-header {
+  background: #999;
+  border-bottom: 3px solid #000;
+  color: #fff;
+  overflow: auto;
+  padding: 0 10px; }
+
+.content-box-body {
+  padding: 0 10px; }
+
 #home-view {
   background: url(/assets/img/StockSnap_ZK4IUPNIUE.jpg);
   background-size: cover;
   min-height: 500px; }
+
+.acctcreatemodalform input.ng-invalid.ng-touched {
+  background-color: #FA787E; }
+
+.step-indicator-bar {
+  border: 3px #000 solid; }
+
+.step-indicator-bar-fill {
+  background: #008000;
+  height: 20px; }
+
+.loginmodalform input.ng-invalid.ng-touched {
+  background-color: #FA787E; }
+
+.login-form-section,
+.acct-locked-section,
+.logging-in-section {
+  display: none; }
+
+.login-form-section.open,
+.acct-locked-section.open,
+.logging-in-section.open {
+  display: block; }
+
+.modal-skin-alt {
+  background: #0000ff;
+  color: #fff; }
+
+.modal-header {
+  background: #0000ff;
+  color: #fff; }
+
+.modal-title {
+  float: left;
+  font-size: 24px; }
+
+.modal-close-btn {
+  color: #fff;
+  float: right; }
+
+.modal-close-btn:hover,
+.modal-close-btn {
+  color: #fff; }
+
+.modal-body {
+  text-align: center; }
