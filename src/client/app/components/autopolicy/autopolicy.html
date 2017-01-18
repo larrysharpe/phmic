@@ -13,13 +13,45 @@
                         <h2 content-box-title>Policy Details</h2>
                     </div>
                     <div class="content-box-body">
-                        <div ng-hide="!$ctrl.policy">
-                            <h3>{{$ctrl.policy.name}} Policy</h3>
-                            <p>
-                                {{$ctrl.policy.summary}}
-                            </p>
+
+                        <p>
+                            <a class="btn btn-danger" href="/dashboard">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Dashboard
+                            </a>
+                        </p>
+
+                        <h3>{{$ctrl.policy.name}} Policy</h3>
+                        <p>
+                            {{$ctrl.policy.summary}}
+                        </p>
+                        <h3>Drivers</h3>
+                        <table class="table table-striped table-border">
+                            <tr>
+                                <th ng-repeat="(k, cell) in $ctrl.driverTableHeaders">{{cell.displayName}}</th>
+                            </tr>
+                            <tr ng-repeat="(k,driver) in $ctrl.policy.drivers">
+                                <td ng-repeat="(i, cell) in $ctrl.driverTableHeaders">{{driver[cell.name]}}</td>
+                            </tr>
+                        </table>
+
+                        <div class="col-sm-6" ng-repeat="(k,vehicle) in $ctrl.policy.vehicles">
+                            <h3>Vehicle {{k + 1}}</h3>
+                            <p>{{vehicle.desc}}</p>
+                            <table class="table table-striped table-border" ng-hide="!vehicle.showCoverage">
+                                <tr>
+                                    <th>Coverage</th>
+                                    <th>Limit</th>
+                                    <th>Deductible</th>
+                                </tr>
+                                <tr ng-repeat="(i, coverage) in vehicle.coverages">
+                                    <td>{{coverage.name}}</td>
+                                    <td>{{coverage.limit}}</td>
+                                    <td>{{coverage.deductible}}</td>
+                                </tr>
+                            </table>
                             <p class="text-right">
-                                <a class="btn btn-primary" href="/autopolicy">See More Details</a>
+                                <button class="btn btn-primary" ng-hide="vehicle.showCoverage" ng-click="$ctrl.showCoverage(k)">View Coverages</button>
+                                <button class="btn btn-danger" ng-hide="!vehicle.showCoverage" ng-click="$ctrl.hideCoverage(k)">Hide Coverages</button>
                             </p>
                         </div>
                     </div>

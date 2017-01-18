@@ -18,6 +18,24 @@
         $ctrl.user = {
           fname: 'Larry'
         };
+
+        $ctrl.driverTableHeaders = [
+            {name: 'unit', displayName: 'Unit'},
+            {name: 'name', displayName: 'Name'},
+            {name: 'dob', displayName: 'DOB'},
+            {name: 'isGoodStudent', displayName: 'Good Student'},
+            {name: 'isDefensiveDriver', displayName: 'Defensive Driver'},
+            {name: 'isExcludedDriver', displayName: 'Excluded Driver'},
+            {name: 'hasDriverTraining', displayName: 'Driver Training'}
+        ]
+
+        $ctrl.showCoverage = function (i) {
+            $ctrl.policy.vehicles[i].showCoverage = true;
+        }
+        $ctrl.hideCoverage = function (i) {
+            $ctrl.policy.vehicles[i].showCoverage = false;
+        }
+
         $ctrl.policy = {
             name: 'Personal Auto',
             num: 4567890,
@@ -81,7 +99,40 @@
                             limit: '$100000',
                             deductible: 0
                         }
-                    ]
+                    ],
+                    desc: lorem.substr(0,100)
+                },
+                {
+                    id: 182143242359,
+                    coverages: [
+                        {
+                            name: 'Bodily Injury',
+                            limit: '$100000/300000',
+                            deductible: 1000
+                        },
+                        {
+                            name: 'Collision',
+                            deductible: 500
+                        },
+                        {
+                            name: 'Full Glass',
+                            deductible: 50
+                        },
+                        {
+                            name: 'Other than Collision',
+                            deductible: 50
+                        },
+                        {
+                            name: 'Personal Injury Protection',
+                            deductible: 0
+                        },
+                        {
+                            name: 'Property Damage',
+                            limit: '$100000',
+                            deductible: 0
+                        }
+                    ],
+                    desc: lorem.substr(0,100)
                 }
             ]
         };
