@@ -56,9 +56,16 @@
             else enableLoginForm();
         }
 
-        var attemptLogin = function (){
+
+
+        var attemptLogin = function () {
+
             $ctrl.loginattempts++;
             openLoggingIn();
+            return dataservice.getLogin().then(function (data) {
+                $ctrl.res = data;
+                return data;
+            });
             setTimeout(loginFailed, 1000);
         }
 

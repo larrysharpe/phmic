@@ -17,11 +17,11 @@
            </p>
            <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
                Email <br>
-               <input type="text" placeholder="enter email" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}">
+               <input type="text" placeholder="enter email" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}" ng-model="$ctrl.user.email">
            </p><br>
            <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
                Password <br>
-               <input type="password" placeholder="enter password" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}"> <br>
+               <input type="password" placeholder="enter password" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}" ng-model="$ctrl.user.password"> <br>
            </p>
            <p>
                <a href="">Need Help? Click here.</a>

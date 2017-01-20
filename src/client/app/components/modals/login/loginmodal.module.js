@@ -2,6 +2,7 @@
     'use strict';
 
     angular.module('app.loginmodal', [
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'app.core'
     ]);
 })();
