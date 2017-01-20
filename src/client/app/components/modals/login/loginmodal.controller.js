@@ -5,15 +5,14 @@
         .module('app.loginmodal')
         .controller('LoginModalController', LoginModalController);
 
-    LoginModalController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$uibModal'];
+    LoginModalController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$uibModal', '$scope'];
     /* @ngInject */
-    function LoginModalController($q, dataservice, logger, $uibModalInstance, $uibModal) {
+    function LoginModalController($q, dataservice, logger, $uibModalInstance, $uibModal, $scope) {
         var $ctrl  = this;
 
         $ctrl.loginattempts = 0;
-        $ctrl.loginFormSection = 'open';
-        $ctrl.acctLockedSectionOpen = '';
-        $ctrl.logginInSectionOpen = '';
+
+        $ctrl.view = 'login';   //[login, loggingIn, locked]
 
         $ctrl.retryValue = 60;
         $ctrl.retryTarget = 0;
@@ -25,41 +24,30 @@
         var acctCreateModalOptions = {
             controller: 'AcctcreatemodalController',
             controllerAs: '$ctrl',
-            size: 'sm',
+            size: 'md',
             templateUrl: '/app/components/modals/acctCreate/acctcreatemodal.html'
         };
+
         $ctrl.setupAcct = function () {
+            $uibModalInstance.close();
             $uibModal.open(acctCreateModalOptions);
         }
 
         var openLoginForm = function () {
-            $ctrl.loginFormSection = 'open';
+            $ctrl.view = 'login';
+            $scope.$apply();
         }
         var openAcctLocked = function () {
-            $ctrl.acctLockedSectionOpen = 'open';
+            $ctrl.view = 'locked';
         }
         var openLoggingIn = function () {
-            $ctrl.logginInSectionOpen = 'open';
-        }
-
-        var closeLoginForm = function () {
-            $ctrl.loginFormSection = '';
-        }
-        var closeAcctLocked = function () {
-            $ctrl.acctLockedSectionOpen = '';
-        }
-        var closeLoggingIn = function () {
-            $ctrl.logginInSectionOpen = '';
+            $ctrl.view = 'loggingIn';
         }
 
         var enableAcctLocked = function (){
             openAcctLocked();
-            closeLoginForm();
-            closeAcctLocked();
         }
         var enableLoginForm = function (){
-            closeLoggingIn();
-            closeAcctLocked();
             openLoginForm();
         }
 
@@ -71,14 +59,17 @@
         var attemptLogin = function (){
             $ctrl.loginattempts++;
             openLoggingIn();
-            closeLoginForm();
-            loginFailed();
+            setTimeout(loginFailed, 1000);
         }
 
         $ctrl.loginFailed = loginFailed;
 
         $ctrl.attemptLogin = function (){
             attemptLogin();
+        }
+
+        $ctrl.isView = function (view) {
+            return $ctrl.view === view;
         }
 
 

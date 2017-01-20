@@ -5,25 +5,13 @@ $title-font-size: 24px;
     background-color: #FA787E;
 }
 
-.login-form-section,
-.acct-locked-section,
-.logging-in-section {
-    display: none
-}
-
-.login-form-section.open,
-.acct-locked-section.open,
-.logging-in-section.open {
-    display: block
-}
-
 .modal-skin-alt {
-    background: #0000ff;
+    background: #005E84;
     color: #fff;
 }
 
 .modal-header {
-    background: #0000ff;
+    background: #005E84;
     color: #fff;
 }
 
