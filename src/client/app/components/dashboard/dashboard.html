@@ -11,27 +11,30 @@
 
                 <div class="content-box">
                     <div class="content-box-header">
-                        <h2 content-box-title>Policy Details</h2>
+                        <h2 content-box-title>Account Overview</h2>
                     </div>
                     <div class="content-box-body">
-                        <h3>Select A Policy</h3>
+                        <h3>Policyholder Information</h3>
                         <p>
-                            <select
-                                ng-options="p.name + ' ' + p.num for p in $ctrl.policies"
-                                ng-model="$ctrl.selectedPolicy"></select>
+                            {{$ctrl.client.name}}
                         </p>
-                        <div ng-hide="!$ctrl.selectedPolicy">
-                            <h3>{{$ctrl.selectedPolicy.name}} Policy</h3>
-                            <p>
-                                {{$ctrl.selectedPolicy.summary}}
-                            </p>
-                            <p class="text-right">
-                                <a href="/autopolicy" class="btn btn-primary">See More Details</a>
-                            </p>
-                        </div>
+                        <p>
+                            {{$ctrl.client.address}}
+                        </p>
+                        <p>
+                            {{$ctrl.client.city}}, {{$ctrl.client.state}} {{$ctrl.client.zip}}
+                        </p>
+                        <h3>Active Policies</h3>
+                        <p>Click on any policy below to see additional details.</p>
+                        <ul class="list-unstyled">
+                            <li ng-repeat="policy in $ctrl.policies">
+                                <a href="/policy/{{policy.id}}">
+                                    {{policy.name}}
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

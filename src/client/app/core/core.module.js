@@ -7,6 +7,6 @@
             'blocks.exception', 'blocks.logger', 'blocks.router',
             'ui.router', 'angularMoment',
             'app.loginmodal', 'app.acctcreatemodal', 'app.billpaymodal',
-            'app.autopolicy'
+            'app.policy'
         ]);
 })();

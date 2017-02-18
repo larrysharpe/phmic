@@ -5,9 +5,9 @@
         .module('app.loginmodal')
         .controller('LoginModalController', LoginModalController);
 
-    LoginModalController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$uibModal', '$scope'];
+    LoginModalController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$uibModal', '$scope', '$location', 'Auth'];
     /* @ngInject */
-    function LoginModalController($q, dataservice, logger, $uibModalInstance, $uibModal, $scope) {
+    function LoginModalController($q, dataservice, logger, $uibModalInstance, $uibModal, $scope, $location, Auth) {
         var $ctrl  = this;
 
         $ctrl.loginattempts = 0;
@@ -20,6 +20,11 @@
         $ctrl.toolTipEmail = 'We do not recognize that email address. Check your spelling or click below if you need help.';
         $ctrl.toolTipPassword = 'That password is incorrect. Try again or click below for assistance.';
 
+        $ctrl.user = {};
+        $ctrl.login = {
+            email: null,
+            password: null
+        };
 
         var acctCreateModalOptions = {
             controller: 'AcctcreatemodalController',
@@ -33,15 +38,21 @@
             $uibModal.open(acctCreateModalOptions);
         }
 
+        var runScope = function () {
+            if(!$scope.$$phase) $scope.$apply();
+        }
+
         var openLoginForm = function () {
             $ctrl.view = 'login';
-            $scope.$apply();
+            runScope();
         }
         var openAcctLocked = function () {
             $ctrl.view = 'locked';
+            runScope();
         }
         var openLoggingIn = function () {
             $ctrl.view = 'loggingIn';
+            runScope();
         }
 
         var enableAcctLocked = function (){
@@ -51,22 +62,38 @@
             openLoginForm();
         }
 
-        var loginFailed = function (){
+        var loginFailed = function ($error){
             if ($ctrl.loginattempts > 2) enableAcctLocked();
             else enableLoginForm();
         }
 
-
+        var loginSuccess = function (){
+            $ctrl.closeModal();
+            $location.path('/dashboard');
+        }
 
         var attemptLogin = function () {
 
             $ctrl.loginattempts++;
             openLoggingIn();
-            return dataservice.getLogin().then(function (data) {
-                $ctrl.res = data;
+
+            if($ctrl.login && $ctrl.login.email && $ctrl.login.password) {
+                Auth.login($ctrl.user);
+                $ctrl.user = {
+                    email: 'yoyoyo',
+                    password: 'fdasd'
+                };
+            }
+            /*
+            return dataservice.getLogin($ctrl.user).then(function (data) {
+                //$ctrl.res = data;
+
+                if(data.status === 'error') loginFailed(data);
+                else if (data.status === 'success') loginSuccess();
+
                 return data;
             });
-            setTimeout(loginFailed, 1000);
+            */
         }
 
         $ctrl.loginFailed = loginFailed;

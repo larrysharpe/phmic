@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('app.autopolicy', [
+    angular.module('app.policy', [
         'app.core',
         'app.shared'
       ]);

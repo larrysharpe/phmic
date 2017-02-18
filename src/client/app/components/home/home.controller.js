@@ -38,6 +38,9 @@
         function getPeople() {
             return dataservice.getPeople().then(function (data) {
                 vm.people = data;
+
+                console.log(data);
+
                 return vm.people;
             });
         }

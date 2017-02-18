@@ -1,4 +1,4 @@
-<div>
+<div ng-show="$ctrl.isView('billpay')">
 
     <div class="modal-header">
         <h3 class="modal-title" id="modal-title">Bill Pay</h3>
@@ -24,11 +24,11 @@
         </section>
     </div>
 </div>
-<div>
+<div ng-show="$ctrl.isView('help')">
         <div class="modal-header">
             <h3 class="modal-title" id="modal-title">Get Help</h3>
         </div>
-        <section>
+        <section class="modal-body">
             <p>Need some human help? Give are friendly and knowledgeable member services staff a call now!</p>
             <p>Toll free number
                 <a href="">(515) xxx-xxxx ext. xxxx</a>
@@ -43,14 +43,13 @@
                 </button>
             </p>
 
-
         </section>
 </div>
-<div>
+<div ng-show="$ctrl.isView('acctmaint')">
         <div class="modal-header">
             <h3 class="modal-title" id="modal-title">Account Maintenance</h3>
         </div>
-        <section>
+        <section class="modal-body">
             <p>Need to make a change to your account?</p>
             <p>Choose one of the options below:</p>
             <p>
@@ -74,11 +73,11 @@
 
         </section>
 </div>
-<div>
+<div ng-show="$ctrl.isView('chgpassword')">
         <div class="modal-header">
             <h3 class="modal-title" id="modal-title">Change Password</h3>
         </div>
-        <section>
+        <section class="modal-body">
             <p>Choose a new password. If you changed your mind, just close this window.</p>
             <p>
                 New password<br>

@@ -13,7 +13,15 @@
                         <h2 content-box-title>Policy Details</h2>
                     </div>
                     <div class="content-box-body">
-
+                        <p>
+                            Need to look at another policy? Use the drop-down below to select the policy you want.
+                        </p>
+                        <p>
+                            <strong>Select a Policy</strong>
+                            <select
+                                ng-options="p.name + ' ' + p.num for p in $ctrl.policies"
+                                ng-model="$ctrl.selectedPolicy"></select>
+                        </p>
                         <p>
                             <a class="btn btn-danger" href="/dashboard">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Dashboard

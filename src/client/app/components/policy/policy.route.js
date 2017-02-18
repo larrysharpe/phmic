@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.autopolicy')
+        .module('app.policy')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
@@ -14,16 +14,16 @@
     function getStates() {
         return [
             {
-                state: 'autopolicy',
+                state: 'policy',
                 config: {
-                    url: '/autopolicy',
-                    templateUrl: 'app/components/autopolicy/autopolicy.html',
-                    controller: 'AutopolicyController',
+                    url: '/policy/:id',
+                    templateUrl: 'app/components/policy/policy.html',
+                    controller: 'PolicyController',
                     controllerAs: '$ctrl',
-                    title: 'Autopolicy',
+                    title: 'policy',
                     settings: {
                         nav: 1,
-                        content: '<i class="fa fa-autopolicy"></i> Autopolicy'
+                        content: '<i class="fa fa-policy"></i> policy'
                     }
                 }
             }
