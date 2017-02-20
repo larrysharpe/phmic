@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('app.activatesms', [
+    angular.module('app.recoveryemail', [
         'ui.bootstrap',
         'app.core'
     ]);

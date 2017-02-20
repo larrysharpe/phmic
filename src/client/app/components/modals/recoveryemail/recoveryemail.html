@@ -1,27 +1,24 @@
-<section class="login-form-section" ng-show="$ctrl.isView('login')">
+<section class="login-form-section">
     <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">Sign In Again</h3>
+        <h3 class="modal-title" id="modal-title">Activate Recovery Email</h3>
         <a href="" ng-click="$ctrl.closeModal()" class="modal-close-btn"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
     </div>
     <div class="modal-body" id="modal-body">
        <form class="loginmodalform" name="loginmodalform">
-           <p>We want to make sure your information is secure, so you'll need to sign in again before we'll make the requested change.</p>
+           <p>Enter a second email that we'll use to recover your account, in case you can't remember your password.</p>
+           <p>This must be different from the email address you use to log into your account.</p>
            <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-               <label>Email</label> <br>
+               <label>Recovery Email Address</label> <br>
                <input type="email" placeholder="enter email" class="form-control" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}" ng-model="$ctrl.login.email" required>
            </p><br>
-           <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-               <label>Password</label> <br>
-               <input type="password" placeholder="enter password" class="form-control tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}" ng-model="$ctrl.login.password" required> <br>
-           </p>
            <p>
                <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
                    <i class="fa fa-times" aria-hidden="true"></i>
-                   Cancel changes
+                   Cancel recovery setup
                </button>
                <button class="btn btn-primary" ng-click="$ctrl.attemptLogin()">
                    <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
-                   Submit sign-in info
+                   Submit recovery email
                </button>
            </p>
        </form>

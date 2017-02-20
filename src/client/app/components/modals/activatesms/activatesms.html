@@ -1,27 +1,34 @@
-<section class="login-form-section" ng-show="$ctrl.isView('login')">
+<section class="login-form-section">
     <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">Sign In Again</h3>
+        <h3 class="modal-title" id="modal-title">Activate SMS Authentication</h3>
         <a href="" ng-click="$ctrl.closeModal()" class="modal-close-btn"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
     </div>
     <div class="modal-body" id="modal-body">
        <form class="loginmodalform" name="loginmodalform">
-           <p>We want to make sure your information is secure, so you'll need to sign in again before we'll make the requested change.</p>
-           <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-               <label>Email</label> <br>
-               <input type="email" placeholder="enter email" class="form-control" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}" ng-model="$ctrl.login.email" required>
+           <p class="text-left">Enter the phone number you want the access code sent to at log in.</p>
+           <p class="text-left">Note: if this feature is activated, you won't be able to access your account without entering the SMS code.</p>
+           <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+               <label>Phone Number</label> <br>
+               <input type="text" placeholder="enter phone number" class="form-control" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}" ng-model="$ctrl.login.email" required>
            </p><br>
-           <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
-               <label>Password</label> <br>
-               <input type="password" placeholder="enter password" class="form-control tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}" ng-model="$ctrl.login.password" required> <br>
+           <p class="text-left">It's important we make sure you receive the code. Click the button to send a code to the number above, then enter that code in the field provided.</p>
+           <p>
+               <button class="btn btn-warning">
+                   Send test code
+               </button>
+           </p>
+           <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+               <label>Access Code</label> <br>
+               <input type="access-code" placeholder="enter access code" class="form-control tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}" ng-model="$ctrl.login.password" required> <br>
            </p>
            <p>
                <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
                    <i class="fa fa-times" aria-hidden="true"></i>
-                   Cancel changes
+                   Cancel SMS setup
                </button>
                <button class="btn btn-primary" ng-click="$ctrl.attemptLogin()">
                    <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
-                   Submit sign-in info
+                   Finish activating SMS
                </button>
            </p>
        </form>

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('app.activatesms')
-        .controller('ActivateSMSController', ActivateSMSController);
+        .module('app.recoveryemail')
+        .controller('RecoveryEmailController', RecoveryEmailController);
 
-    ActivateSMSController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$uibModal', '$scope', '$location', 'Auth'];
+    RecoveryEmailController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$uibModal', '$scope', '$location', 'Auth'];
     /* @ngInject */
-    function ActivateSMSController($q, dataservice, logger, $uibModalInstance, $uibModal, $scope, $location, Auth) {
+    function RecoveryEmailController($q, dataservice, logger, $uibModalInstance, $uibModal, $scope, $location, Auth) {
         var $ctrl  = this;
 
 

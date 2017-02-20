@@ -1,0 +1,4 @@
+
+
+Login                   /api/login              post    email, password
+Verify Access Code      /api/verifyaccesscode
