@@ -1,151 +1,21 @@
 (function () {
     'use strict';
 
-    var lorem = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.';
-
-    var LocalData = {
-        client: {
-            address: '2113 Ash Street',
-            city: 'Glenwood',
-            name: 'John Smith',
-            state: 'MA',
-            zip: '46732'
-        },
-        /*policies: [
-            {name: 'Businessowners Policy', num: 'BOP 3241253 14', summary: lorem, id: 123456 },
-            {name: 'Commercial Auto Policy', num: 'CAU 1212332 14', summary: lorem, id: 234567 },
-            {name: 'Personal Auto Policy', num: 'APV 00033249 00', summary: lorem, id: 345678 },
-        ],:*/
-        policies: {
-            '345678': {
-                name: 'Personal Auto',
-                num: 'APV 00033249 00',
-                summary: lorem,
-                id: 345678,
-                drivers: [
-                    {
-                        unit: '0001',
-                        name: 'John Smith',
-                        dob: '12/09/1974',
-                        isGoodStudent: false,
-                        isDefensiveDriver: false,
-                        isExcludedDriver: false,
-                        hasDriverTraining: false
-                    },
-                    {
-                        unit: '0002',
-                        name: 'Alicia Smith',
-                        dob: '04/20/1977',
-                        isGoodStudent: false,
-                        isDefensiveDriver: false,
-                        isExcludedDriver: false,
-                        hasDriverTraining: false
-                    },
-                    {
-                        unit: '0003',
-                        name: 'John Smith Jr',
-                        dob: '10/17/2000',
-                        isGoodStudent: true,
-                        isDefensiveDriver: false,
-                        isExcludedDriver: false,
-                        hasDriverTraining: true
-                    },
-                ],
-                vehicles: [
-                    {
-                        id: 182143242359,
-                        coverages: [
-                            {
-                                name: 'Bodily Injury',
-                                limit: '$100000/300000',
-                                deductible: 1000
-                            },
-                            {
-                                name: 'Collision',
-                                deductible: 500
-                            },
-                            {
-                                name: 'Full Glass',
-                                deductible: 50
-                            },
-                            {
-                                name: 'Other than Collision',
-                                deductible: 50
-                            },
-                            {
-                                name: 'Personal Injury Protection',
-                                deductible: 0
-                            },
-                            {
-                                name: 'Property Damage',
-                                limit: '$100000',
-                                deductible: 0
-                            }
-                        ],
-                        desc: lorem.substr(0, 100)
-                    },
-                    {
-                        id: 182143242359,
-                        coverages: [
-                            {
-                                name: 'Bodily Injury',
-                                limit: '$100000/300000',
-                                deductible: 1000
-                            },
-                            {
-                                name: 'Collision',
-                                deductible: 500
-                            },
-                            {
-                                name: 'Full Glass',
-                                deductible: 50
-                            },
-                            {
-                                name: 'Other than Collision',
-                                deductible: 50
-                            },
-                            {
-                                name: 'Personal Injury Protection',
-                                deductible: 0
-                            },
-                            {
-                                name: 'Property Damage',
-                                limit: '$100000',
-                                deductible: 0
-                            }
-                        ],
-                        desc: lorem.substr(0, 100)
-                    }
-                ]
-            }
-        }
-};
-
     angular
         .module('app.policy')
-        .value('PolicyLocalData', LocalData)
         .controller('PolicyController', PolicyController);
 
-    PolicyController.$inject = ['$q', 'dataservice', 'logger', 'PolicyLocalData'];
+    PolicyController.$inject = ['$q', 'dataservice', 'logger', '$stateParams', '$location'];
     /* @ngInject */
-    function PolicyController($q, dataservice, logger, PolicyLocalData) {
-
-        var lorem = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.';
+    function PolicyController($q, dataservice, logger, $stateParams, $location) {
 
         var $ctrl = this;
 
-
-        //replace with data service
-
-        $ctrl.driverTableHeaders = [
-            {name: 'unit', displayName: 'Unit'},
-            {name: 'name', displayName: 'Name'},
-            {name: 'dob', displayName: 'DOB'},
-            {name: 'isGoodStudent', displayName: 'Good Student'},
-            {name: 'isDefensiveDriver', displayName: 'Defensive Driver'},
-            {name: 'isExcludedDriver', displayName: 'Excluded Driver'},
-            {name: 'hasDriverTraining', displayName: 'Driver Training'}
-        ]
+        $ctrl.switchPages = function (){
+            console.log($ctrl.selectedPolicy);
+            var path = '/policy/' + $ctrl.selectedPolicy.id;
+            $location.path(path);
+        }
 
         $ctrl.showCoverage = function (i) {
             $ctrl.policy.vehicles[i].showCoverage = true;
@@ -154,6 +24,100 @@
             $ctrl.policy.vehicles[i].showCoverage = false;
         }
 
-        $ctrl.policy = LocalData.policy;
+        $ctrl.showSections = {
+            "DriverInformation": false
+        };
+
+        $ctrl.displayFields = {
+          "ClientInformation": [
+              {name: "Name", displayName: "Insured Name"},
+              {name: "Address", displayName: "Mailing Address"},
+              {name: "WorkPhone", displayName: "Wok Phone"},
+              {name: "HomePhone", displayName: "Home Phone"},
+              {name: "CellPhone", displayName: "Cell Phone"},
+              {name: "WorkEmail", displayName: "Work Email"},
+              {name: "PersonalEmail", displayName: "Personal Email"},
+              {name: "WebAddress", displayName: "Web Address"},
+              {name: "Fax", displayName: "Fax"}
+          ],
+          "DriverInformation": [
+              {name: 'Name', displayName: 'Driver Name'},
+              {name: 'DOB', displayName: 'Date of Birth'},
+              {name: 'LicenseNum', displayName: 'License Number'},
+              {name: 'MaritalStatus', displayName: 'Martial Status'},
+              {name: 'GoodStudent', displayName: 'Good Student'},
+              {name: 'DefensiveDriver', displayName: 'Defensive Driver'},
+              {name: 'ExcludedDriver', displayName: 'Excluded Driver'},
+              {name: 'DriversTraining', displayName: 'Driver Training'}
+          ],
+          "PolicyInformation": [
+                {name: "PolicyNum", displayName: "Policy Number"},
+                {name: "CustomerNum", displayName: "Customer Number" },
+                {name: "Contact", displayName: "Contact Name"},
+                {name: "PolicyStatus", displayName: "Policy Status"},
+                {name: "EffDate", displayName: "Effective Date"},
+                {name: "ExpDate", displayName: "Expiration Date"},
+                {name: "TWP", displayName: "Total Written Premium"}
+          ],
+          "UnitInformation": [
+              {name: "Year", displayName: "Year"},
+              {name: "MakeModel", displayName: "Make/Model" },
+              {name: "VIN", displayName: "VIN"},
+              {name: "FullAddr", displayName: "Garaging Location"},
+              {name: "Premium", displayName: "Premium"},
+          ],
+          "PolicyInterests": [
+              {name: "Name", displayName: "Name"},
+              {name: "Address", displayName: "Address" }
+          ]
+        };
+
+
+        var showDriverInformationList = ['personal-auto'];
+
+        var sectionList = {
+            "DriverInformation": ['personal-auto']
+        };
+
+        /**
+         * Handle the results returned from the data service
+         * @param data
+         * @returns {*}
+         */
+        var handleGetPolicy = function (data){
+            $ctrl.policy = data;
+            getClient(data.userid);
+
+            for (var section in sectionList){
+                if (sectionList[section].indexOf(data.Type) > -1) $ctrl.showDriverInformation = true;
+            }
+
+            return $ctrl.policy;
+        }
+
+        var handleGetClient = function (data){
+            $ctrl.client = data;
+            return $ctrl.client;
+        }
+
+
+        /**
+         * Call the data service and get the current policy details
+         * @returns {*}
+         */
+        var getPolicy = function () {
+            return dataservice.getPolicy($stateParams.id).then(handleGetPolicy);
+        }
+
+        /**
+         * Call data service and get current client
+         * @returns {*}
+         */
+        var getClient = function (userid) {
+            return dataservice.getPerson(userid).then(handleGetClient);
+        }
+
+        getPolicy();
+
     }
 })();

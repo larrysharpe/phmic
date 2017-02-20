@@ -1,6 +1,3 @@
-<p>
-    {{$ctrl.user}}
-</p>
 <section class="login-form-section" ng-show="$ctrl.isView('login')">
     <div class="modal-header">
         <h3 class="modal-title" id="modal-title">Log In</h3>
@@ -16,15 +13,15 @@
                </button>
            </p>
            <p>
-               Otherwise, sign in below.
+               Already have an account? Sign in below.
            </p>
            <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
                Email <br>
-               <input type="text" placeholder="enter email" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}" ng-model="$ctrl.login.email">
+               <input type="email" placeholder="enter email" class="form-control" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}" ng-model="$ctrl.login.email" required>
            </p><br>
            <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
                Password <br>
-               <input type="password" placeholder="enter password" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}" ng-model="$ctrl.login.password"> <br>
+               <input type="password" placeholder="enter password" class="form-control tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipPassword}}" ng-model="$ctrl.login.password" required> <br>
            </p>
            <p>
                <a href="">Need Help? Click here.</a>

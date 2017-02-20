@@ -1,30 +1,13 @@
 (function () {
     'use strict';
 
-    var lorem = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.';
-    var LocalData = {
-        client: {
-            address: '2113 Ash Street',
-            city: 'Glenwood',
-            name: 'John Smith',
-            state: 'MA',
-            zip: '46732'
-        },
-        policies: [
-            {name: 'Businessowners Policy', num: 'BOP 3241253 14', summary: lorem, id: 123456 },
-            {name: 'Commercial Auto Policy', num: 'CAU 1212332 14', summary: lorem, id: 123456 },
-            {name: 'Personal Auto Policy', num: 'APV 00033249 00', summary: lorem, id: 123456 },
-        ]
-    };
-
     angular
         .module('app.dashboard')
-        .value('DashboardLocalData', LocalData)
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$q', 'dataservice', 'logger', '$uibModal', 'DashboardLocalData'];
+    DashboardController.$inject = ['$q', 'dataservice', 'logger', '$uibModal'];
     /* @ngInject */
-    function DashboardController($q, dataservice, logger, $uibModal, DashboardLocalData) {
+    function DashboardController($q, dataservice, logger, $uibModal) {
 
         var $ctrl = this;
         var billPayModalOptions = {
@@ -34,21 +17,37 @@
             templateUrl: '/app/components/modals/billPay/billpaymodal.html'
         };
 
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        /**
+         * Opens the Bill Pay Modal
+         */
         $ctrl.openBillPay = function () {
             $uibModal.open(billPayModalOptions);
         }
 
-        function getClient() {
-            return dataservice.getPerson(1).then(function (data) {
-                $ctrl.people = data;
-
-                console.log(data);
-
-                return $ctrl.people;
-            });
+        /**
+         * Handle the results returned from the data service
+         * @param data
+         * @returns {*}
+         */
+        var handleGetData = function (data){
+            $ctrl.client = data;
+            return $ctrl.client;
         }
 
-        getClient();
-        $ctrl.policies = LocalData.policies;
+        /**
+         * Call data service and get current client
+         * @returns {*}
+         */
+        var getData = function () {
+            return dataservice.getPerson(getRandomIntInclusive(1,100)).then(handleGetData);
+        }
+
+        getData();
     }
 })();

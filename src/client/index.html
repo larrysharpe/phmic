@@ -16,6 +16,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="/lib/bootstrap-css-only/css/bootstrap.css" />
     <link rel="stylesheet" href="/lib/components-font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/lib/ng-password-meter/dist/ng-password-meter.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -43,6 +44,7 @@
     <script src="/lib/angular-animate/angular-animate.js"></script>
     <script src="/lib/angular-moment/angular-moment.js"></script>
     <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/lib/ng-password-meter/dist/ng-password-meter.js"></script>
     <!-- endbower -->
     <!-- customjs:js -->
     <!-- endinject -->
@@ -54,12 +56,17 @@
     <script src="/src/client/app/blocks/exception/exception.module.js"></script>
     <script src="/src/client/app/blocks/logger/logger.module.js"></script>
     <script src="/src/client/app/blocks/router/router.module.js"></script>
+    <script src="/src/client/app/components/changepassword/changepassword.module.js"></script>
+    <script src="/src/client/app/components/changesecurityquestions/changesecurityquestions.module.js"></script>
     <script src="/src/client/app/components/dashboard/dashboard.module.js"></script>
     <script src="/src/client/app/components/home/home.module.js"></script>
+    <script src="/src/client/app/components/improveaccountsecurity/improveaccountsecurity.module.js"></script>
     <script src="/src/client/app/components/modals/acctCreate/acctcreatemodal.module.js"></script>
     <script src="/src/client/app/components/modals/billPay/billpaymodal.module.js"></script>
     <script src="/src/client/app/components/modals/login/loginmodal.module.js"></script>
+    <script src="/src/client/app/components/modals/signinagain/signinagain.module.js"></script>
     <script src="/src/client/app/components/policy/policy.module.js"></script>
+    <script src="/src/client/app/components/profile/profile.module.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app/layout/layout.module.js"></script>
     <script src="/src/client/app/shared/shared.module.js"></script>
@@ -67,17 +74,25 @@
     <script src="/src/client/app/blocks/exception/exception.js"></script>
     <script src="/src/client/app/blocks/logger/logger.js"></script>
     <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/client/app/components/changepassword/changepassword.controller.js"></script>
+    <script src="/src/client/app/components/changepassword/changepassword.route.js"></script>
+    <script src="/src/client/app/components/changesecurityquestions/changesecurityquestions.controller.js"></script>
+    <script src="/src/client/app/components/changesecurityquestions/changesecurityquestions.route.js"></script>
     <script src="/src/client/app/components/dashboard/dasboard.route.js"></script>
     <script src="/src/client/app/components/dashboard/dashboard.controller.js"></script>
-    <script src="/src/client/app/components/dashboard/dashboard.localdata.js"></script>
     <script src="/src/client/app/components/home/home.controller.js"></script>
     <script src="/src/client/app/components/home/home.route.js"></script>
     <script src="/src/client/app/components/home/sections/my-section.js"></script>
+    <script src="/src/client/app/components/improveaccountsecurity/improveaccountsecurity.controller.js"></script>
+    <script src="/src/client/app/components/improveaccountsecurity/improveaccountsecurity.route.js"></script>
     <script src="/src/client/app/components/modals/acctCreate/acctcreatemodal.controller.js"></script>
     <script src="/src/client/app/components/modals/billPay/billpaymodal.controller.js"></script>
     <script src="/src/client/app/components/modals/login/loginmodal.controller.js"></script>
+    <script src="/src/client/app/components/modals/signinagain/signinagain.controller.js"></script>
     <script src="/src/client/app/components/policy/policy.controller.js"></script>
     <script src="/src/client/app/components/policy/policy.route.js"></script>
+    <script src="/src/client/app/components/profile/profile.controller.js"></script>
+    <script src="/src/client/app/components/profile/profile.route.js"></script>
     <script src="/src/client/app/core/auth.js"></script>
     <script src="/src/client/app/core/config.js"></script>
     <script src="/src/client/app/core/constants.js"></script>

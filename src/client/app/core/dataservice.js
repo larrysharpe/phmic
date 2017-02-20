@@ -12,7 +12,8 @@
             getPeople: getPeople,
             getPerson: getPerson,
             getMessageCount: getMessageCount,
-            getLogin: getLogin
+            getLogin: getLogin,
+            getPolicy: getPolicy
         };
 
         return service;
@@ -70,6 +71,21 @@
             }
 
             return $http.get('/api/people/' + id )
+                .then(success)
+                .catch(fail);
+
+        }
+        function getPolicy(id) {
+
+            var success = function (response) {
+                return response.data;
+            }
+
+            var fail = function(e) {
+                return exception.catcher('XHR Failed for getPeople')(e);
+            }
+
+            return $http.get('/api/policy/' + id )
                 .then(success)
                 .catch(fail);
 

@@ -1,36 +1,3 @@
-$title-font-size: 24px;
-
-
 .loginmodalform input.ng-invalid.ng-touched {
     background-color: #FA787E;
-}
-
-.modal-skin-alt {
-    background: #005E84;
-    color: #fff;
-}
-
-.modal-header {
-    background: #005E84;
-    color: #fff;
-}
-
-.modal-title {
-    float: left;
-    font-size: $title-font-size;
-}
-
-.modal-close-btn {
-    color: #fff;
-    float: right;
-    //font-size: $title-font-size;
-}
-
-.modal-close-btn:hover,
-.modal-close-btn {
-    color: #fff;
-}
-
-.modal-body {
-    text-align: center;
 }

@@ -2,11 +2,16 @@
     background-color: #FA787E;
 }
 
+.step-indicator {
+    margin-bottom: 20px;
+}
+
 .step-indicator-bar {
-    border: 3px #000 solid;
+    border: 1px #000 solid;
 }
 
 .step-indicator-bar-fill {
     background: #008000;
-    height: 20px;
+    height: 18px;
+    margin: 1px;
 }

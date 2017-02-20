@@ -2,21 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <p class="text-right">Welcome Back, {{$ctrl.user.fname}}!</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <a href="" ng-click="$ctrl.openBillPay()">Pay Bill!</a>
-
-                <div class="content-box">
+                <div class="content-box content-container">
                     <div class="content-box-header">
                         <h2 content-box-title>Account Overview</h2>
                     </div>
                     <div class="content-box-body">
                         <h3>Policyholder Information</h3>
                         <p>
-                            {{$ctrl.client.name}}
+                            {{$ctrl.client.first_name}} {{$ctrl.client.last_name}}
                         </p>
                         <p>
                             {{$ctrl.client.address}}
@@ -27,9 +20,9 @@
                         <h3>Active Policies</h3>
                         <p>Click on any policy below to see additional details.</p>
                         <ul class="list-unstyled">
-                            <li ng-repeat="policy in $ctrl.policies">
+                            <li ng-repeat="policy in $ctrl.client.policies">
                                 <a href="/policy/{{policy.id}}">
-                                    {{policy.name}}
+                                    {{policy.TypeName}} Policy
                                 </a>
                             </li>
                         </ul>

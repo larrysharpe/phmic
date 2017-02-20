@@ -15,6 +15,7 @@
         $ctrl.fillWidth = 0;
         $ctrl.showStepControls = true;
         $ctrl.showCancelConfirmation = false;
+        $ctrl.acct = {};
 
         $ctrl.showNextStep = function (){
             return $ctrl.currentStep < ($ctrl.totalSteps - 1);
@@ -39,6 +40,41 @@
         $ctrl.closeConfirmation = function (){
             $ctrl.showStepControls = true;
             $ctrl.showCancelConfirmation = false;
+        }
+
+        $ctrl.checkPasswordLength = function () {
+            if($ctrl.acct.password) return $ctrl.acct.password.length >= 10;
+        };
+
+        $ctrl.checkForLowercase = function () {
+            if($ctrl.acct.password) return (/[a-z]/.test($ctrl.acct.password));
+        }
+
+        $ctrl.checkForUppercase = function () {
+            if($ctrl.acct.password) return (/[A-Z]/.test($ctrl.acct.password));
+        }
+
+        $ctrl.checkForNumber = function () {
+            if($ctrl.acct.password) return (/[0-9]/.test($ctrl.acct.password));
+        }
+
+        $ctrl.checkForWords = function () {
+            if($ctrl.acct.password) return (/password/.test($ctrl.acct.password));
+        }
+
+        $ctrl.hasRepeatedLetters = function () {
+            if($ctrl.acct.password) return (/^([\w\W])\1+$/.test($ctrl.acct.password));
+        }
+
+
+        $ctrl.showConfirm = function (){
+            return (!$ctrl.checkForWords()
+            && !$ctrl.hasRepeatedLetters()
+            && $ctrl.checkForNumber()
+            && $ctrl.checkForLowercase()
+            && $ctrl.checkForUppercase()
+            && $ctrl.checkPasswordLength()
+            );
         }
 
         var showCancelConfirmation = function (){

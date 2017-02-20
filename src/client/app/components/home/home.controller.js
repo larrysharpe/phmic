@@ -22,7 +22,7 @@
         activate();
 
         function activate() {
-            var promises = [getMessageCount(), getPeople()];
+            var promises = [getMessageCount()];
             return $q.all(promises).then(function () {
                 logger.info('Activated Home View');
             });
@@ -35,14 +35,5 @@
             });
         }
 
-        function getPeople() {
-            return dataservice.getPeople().then(function (data) {
-                vm.people = data;
-
-                console.log(data);
-
-                return vm.people;
-            });
-        }
     }
 })();

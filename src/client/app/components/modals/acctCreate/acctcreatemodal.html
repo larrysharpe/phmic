@@ -2,17 +2,24 @@
 
     <div class="modal-header">
         <h3 class="modal-title" id="modal-title">Set Up Account</h3>
+        <a href="" ng-click="$ctrl.closeModal()" class="modal-close-btn"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
     </div>
     <div class="modal-body" id="modal-body">
 
         <!-- Step Indicator -->
         <div class="step-indicator">
-            <div>
-                <span ng-hide="$ctrl.currentStep > $ctrl.totalSteps">Step {{$ctrl.currentStep}} of {{$ctrl.totalSteps}}</span>
-                <span ng-hide="$ctrl.currentStep <= $ctrl.totalSteps">Done!</span>
-            </div>
-            <div class="step-indicator-bar">
-                <div class="step-indicator-bar-fill" style="width:{{$ctrl.fillWidth}}%"></div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <strong>
+                        <span ng-hide="$ctrl.currentStep > $ctrl.totalSteps">Step {{$ctrl.currentStep}} of {{$ctrl.totalSteps}}</span>
+                        <span ng-hide="$ctrl.currentStep <= $ctrl.totalSteps">All Done!</span>
+                    </strong>
+                </div>
+                <div class="col-xs-9">
+                    <div class="step-indicator-bar">
+                        <div class="step-indicator-bar-fill" style="width:{{$ctrl.fillWidth}}%"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -20,87 +27,187 @@
 
 
         <section ng-hide="$ctrl.currentStep !== 1">
-            <p>
-                Before we set up your account, we need just a little information to make sure we get everything right.
+            <p class="text-left">
+                Before we set up your account, we need some information to help verify your identity. You'll need to provide us your customer number and the email address on your Pharmacists Mututal account.
             </p>
-            <p>
-                Customer Number  <a href="">i</a> <br>
-                <input type="text" placeholder="enter customer number" ng-model="$ctrl.acct.customerno">
-            </p>
-            <p>
-                Email Address<br>
-                <input type="email" placeholder="enter email" ng-model="$ctrl.acct.email">
-            </p>
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="customer-number">Customer Number</label>  <a href=""><span class="badge">?</span></a>
+                </div>
+                <input type="text" placeholder="enter customer number" ng-model="$ctrl.acct.customerno" class="form-control" id="customer-number" required>
+            </div><br>
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="email-address">Email Address</label> <a href=""><span class="badge">?</span></a>
+                </div>
+                <input type="email" placeholder="enter email" ng-model="$ctrl.acct.email" class="form-control" id="email-address" required>
+            </div>
         </section>
         <section ng-hide="$ctrl.currentStep !== 2">
-            <p>
-                Great! We sent a secret code to {{$ctrl.acct.email}}. Use this one time code to validate that you have access to the email address on file.
+            <p class="text-left">
+                Great! We sent a secret code to {{$ctrl.acct.email}}. Use this one-time code to verify that you have access to that account.
             </p>
-            <div>
-                Secret Code<br>
-                <input type="text" placeholder="enter the secret code">
-                <br>
-                <a href="">Didn't get the code?</a>
+            <p class="text-left">
+                Note: the code will expire after 8 hours.
+            </p>
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="access-code">Access Code</label>
+                </div>
+                <input type="text" placeholder="enter access code" ng-model="$ctrl.acct.accesscode" class="form-control" id="access-code" required>
+            </div>
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+
+                Didn't receive the code?
+                <button class="btn">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                    Resend Code
+                </button>
             </div>
 
         </section>
         <section ng-hide="$ctrl.currentStep !== 3">
-            <p>That's it! Now choose a secure password so that you don't have to go through all of this stuff next time</p>
-            <div>
-                Create a password<br>
-                <input type="password" placeholder="enter a secure password">
-                password strength
-                <div class="pw-strenght">
-                    <div></div>
+            <p>Now, choose a secure password. Moving forward , you'll use your email and this password to log in.</p>
+
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="password-new-acct">Create A Password</label>
                 </div>
+                <input type="password" placeholder="enter password code" ng-model="$ctrl.acct.password" class="form-control" id="password-new-acct" required>
             </div>
-            <ul>
-                <li>Increase password length </li>
-                <li>Add an uppercase letter </li>
-                <li>Add a number</li>
-                <li>Don't use the word password</li>
-            </ul>
+            <p>Password Strength</p>
+            <ng-password-meter password="$ctrl.acct.password"></ng-password-meter>
+
+
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                <ul class="list-unstyled">
+                    <li ng-class="{'text-danger': !$ctrl.checkPasswordLength(), 'text-success':$ctrl.checkPasswordLength() }">
+                        <i class="fa fa-times" ng-if="!$ctrl.checkPasswordLength()"></i>
+                        <i class="fa fa-check" ng-if="$ctrl.checkPasswordLength()"></i>
+                        Make password at least 10 characters long
+                    </li>
+                    <li ng-class="{'text-danger': !$ctrl.checkForUppercase(), 'text-success':$ctrl.checkForUppercase() }">
+                        <i class="fa fa-times" ng-if="!$ctrl.checkForUppercase()"></i>
+                        <i class="fa fa-check" ng-if="$ctrl.checkForUppercase()"></i>
+                        Include at least one uppercase letter
+                    </li>
+                    <li ng-class="{'text-danger': !$ctrl.checkForLowercase(), 'text-success':$ctrl.checkForLowercase() }">
+                        <i class="fa fa-times" ng-if="!$ctrl.checkForLowercase()"></i>
+                        <i class="fa fa-check" ng-if="$ctrl.checkForLowercase()"></i>
+                        Include at least one lowercase letter
+                    </li>
+                    <li ng-class="{'text-danger': !$ctrl.checkForNumber(), 'text-success':$ctrl.checkForNumber() }">
+                        <i class="fa fa-times" ng-if="!$ctrl.checkForNumber()"></i>
+                        <i class="fa fa-check" ng-if="$ctrl.checkForNumber()"></i>
+                        Include at least one number
+                    </li>
+                    <li ng-class="{'text-danger': $ctrl.hasRepeatedLetters(), 'text-success':!$ctrl.hasRepeatedLetters() }">
+                        <i class="fa fa-times" ng-if="$ctrl.hasRepeatedLetters()"></i>
+                        <i class="fa fa-check" ng-if="!$ctrl.hasRepeatedLetters()"></i>
+                        Don't use repeating characters (e.g. 111)
+                    </li>
+                    <li ng-class="{'text-danger': $ctrl.checkForWords(), 'text-success':!$ctrl.checkForWords() }">
+                        <i class="fa fa-times" ng-if="$ctrl.checkForWords()"></i>
+                        <i class="fa fa-check" ng-if="!$ctrl.checkForWords()"></i>
+                        Don't use the word "password" or anything like it
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group"
+                ng-if="$ctrl.showConfirm()">
+                <div class="label-badge">
+                    <label for="confirm-password-new-acct">Re-enter Password</label>
+                </div>
+                <input type="password" placeholder="re-enter password code" ng-model="$ctrl.acct.confirmpassword" class="form-control" id="confirm-password-new-acct" required>
+            </div>
         </section>
         <section ng-hide="$ctrl.currentStep !== 4">
-            <p>
-                Okay last step. You need some way to recovery your password in case you forget it.
+            <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                Last step. In case you ever forget your password, you'll need some way to recover it. Create three sets of security question and answer combinations that only you'll know.
             </p>
-            <p>
-                Create a security question answer a security question
-            </p>
-            <p>
-                Not feeling very creative? No problem. You can select one of our pre-defined questions.
-            </p>
-            <p>
-                Choose a security question
-                <select>
-                    <option>who was your first crush?</option>
-                </select>
-            </p>
-            <p>
-                Answer your question
-                <input type="text" placeholder="enter an answer to your question">
-            </p>
+
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="security-question-1">Create Question 1</label>
+                </div>
+                <input type="text" ng-model="$ctrl.acct.securityquestion1" class="form-control" id="security-question-1" required>
+            </div>
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="security-answer-1">Answer Question 1</label>
+                </div>
+                <input type="text" ng-model="$ctrl.acct.securityanswer1" class="form-control" id="security-answer-1" required>
+            </div>
+
+
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="security-question-2">Create Question 2</label>
+                </div>
+                <input type="text" ng-model="$ctrl.acct.securityquestion2" class="form-control" id="security-question-2" required>
+            </div>
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="security-answer-2">Answer Question 2</label>
+                </div>
+                <input type="text" ng-model="$ctrl.acct.securityanswer2" class="form-control" id="security-answer-2" required>
+            </div>
+
+
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="security-question-3">Create Question 3</label>
+                </div>
+                <input type="text" ng-model="$ctrl.acct.securityquestion3" class="form-control" id="security-question-3" required>
+            </div>
+            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                <div class="label-badge">
+                    <label for="security-answer-3">Answer Question 3</label>
+                </div>
+                <input type="text" ng-model="$ctrl.acct.securityanswer3" class="form-control" id="security-answer-3" required>
+            </div>
+
         </section>
         <section ng-hide="$ctrl.currentStep !== 5">
-            <p>
-                That's it for account setup. We're logging into your account now.
+            <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                Your account is set up. We're logging you into your dashboard now.
             </p>
+
+            <h3 class="text-center">Logging in...</h3>
+
+
+            <div class="row">
+                <div class="col-xs-7">
+                    <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                        If the system doesn't log you in within 30 seconds, click the button to manually log in.
+                    </p>
+                </div>
+
+                <div class="col-xs-5">
+                    <button class="btn btn-primary">
+                        <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+                        Log in now
+                    </button>
+                </div>
+            </div>
+
+
         </section>
 
         <!-- Controls -->
         <p ng-hide="!$ctrl.showStepControls">
-            <button class="btn btn-danger" ng-click="$ctrl.cancelCreation()">
-                Cancel Account Creation
+            <button class="btn btn-danger" ng-click="$ctrl.cancelCreation()" ng-hide="$ctrl.currentStep === 5">
+               <i class="fa fa-times"></i>  Cancel setup
             </button>
             <button class="btn btn-primary" ng-hide="!$ctrl.showNextStep()" ng-click="$ctrl.nextStep()">
-                Continue to Next Step
+                <i class="glyphicon glyphicon-log-in fa-lg" aria-hidden="true"></i> Continue to Next Step
             </button>
             <button class="btn btn-primary" ng-hide="!$ctrl.showLastStep()" ng-click="$ctrl.nextStep()">
-                Continue to Last Step
+                <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i> Continue to Last Step
             </button>
             <button class="btn btn-primary" ng-hide="!$ctrl.showComplete()" ng-click="$ctrl.nextStep()">
-                Complete Set Up
+                <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>  Finalize account creation
             </button>
         </p>
 
