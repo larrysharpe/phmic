@@ -33,7 +33,6 @@
 
         $uibModal.open(modalOptions.signInAgainOptions);
 
-
         $ctrl.SMSActive = false;
         $ctrl.recoveryEmailActive = false;
         $ctrl.openActiveSMS = function () {
@@ -44,7 +43,7 @@
             $uibModal.open(modalOptions.recoveryemail);
         };
 
-        var handleGetClient = function (data){
+        var handleGetClient = function (data) {
             $ctrl.client = data;
             return $ctrl.client;
         };

@@ -10,7 +10,6 @@
     function ActivateSMSController($q, dataservice, logger, $uibModalInstance, $uibModal, $scope, $location, Auth) {
         var $ctrl  = this;
 
-
         $ctrl.closeModal = function () {
             $uibModalInstance.close();
         };

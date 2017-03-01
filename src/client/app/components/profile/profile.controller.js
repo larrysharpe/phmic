@@ -10,7 +10,7 @@
     function ProfileController($q, dataservice, logger, $stateParams, $location) {
         var $ctrl = this;
 
-        var handleGetClient = function (data){
+        var handleGetClient = function (data) {
             $ctrl.client = data;
             return $ctrl.client;
         };

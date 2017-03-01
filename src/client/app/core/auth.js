@@ -11,7 +11,7 @@
 
         var user = {};
 
-        var getUser = function (){
+        var getUser = function () {
             return user;
         };
         var login = function(user, callback) {
@@ -22,13 +22,13 @@
                 email: user.email,
                 password: user.password
             })
-            .then(function(response){
+            .then(function(response) {
                 return response.data;
             });
 
             return deferred.promise;
         };
-        var logout = function (){};
+        var logout = function () {};
 
         var service = {
             login: login,

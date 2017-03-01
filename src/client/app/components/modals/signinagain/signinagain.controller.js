@@ -26,8 +26,6 @@
             password: null
         };
 
-
-
         var acctCreateModalOptions = {
             controller: 'AcctcreatemodalController',
             controllerAs: '$ctrl',
@@ -41,7 +39,7 @@
         };
 
         var runScope = function () {
-            if(!$scope.$$phase) { $scope.$apply(); }
+            if (!$scope.$$phase) { $scope.$apply(); }
         };
 
         var openLoginForm = function () {
@@ -57,19 +55,19 @@
             runScope();
         };
 
-        var enableAcctLocked = function (){
+        var enableAcctLocked = function () {
             openAcctLocked();
         };
-        var enableLoginForm = function (){
+        var enableLoginForm = function () {
             openLoginForm();
         };
 
-        var loginFailed = function ($error){
+        var loginFailed = function ($error) {
             if ($ctrl.loginattempts > 2) { enableAcctLocked(); }
             else { enableLoginForm(); }
         };
 
-        var loginSuccess = function (){
+        var loginSuccess = function () {
             $ctrl.closeModal();
             $location.path('/dashboard');
         };
@@ -79,7 +77,7 @@
             $ctrl.loginattempts++;
             openLoggingIn();
 
-            if($ctrl.login && $ctrl.login.email && $ctrl.login.password) {
+            if ($ctrl.login && $ctrl.login.email && $ctrl.login.password) {
                 Auth.login($ctrl.user);
                 $ctrl.user = {
                     email: 'yoyoyo',
@@ -100,7 +98,7 @@
 
         $ctrl.loginFailed = loginFailed;
 
-        $ctrl.attemptLogin = function (){
+        $ctrl.attemptLogin = function () {
             attemptLogin();
         };
 
@@ -108,11 +106,9 @@
             return $ctrl.view === view;
         };
 
-
         $ctrl.closeModal = function () {
             $uibModalInstance.close();
         };
-
 
     }
 })();

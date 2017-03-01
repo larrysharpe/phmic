@@ -32,10 +32,10 @@
 
         /**
          * Handle the results returned from the data service
-         * @param data
+         * @param {Object} data
          * @returns {*}
          */
-        var handleGetData = function (data){
+        var handleGetData = function (data) {
             $ctrl.client = data;
             return $ctrl.client;
         };
