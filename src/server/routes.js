@@ -4,6 +4,7 @@ var data = require('./data');
 
 
 router.post('/login', login);
+router.get('/login', login);
 
 router.get('/people', getPeople);
 router.get('/people/:id', getPerson);
@@ -21,8 +22,25 @@ module.exports = router;
 //////////////
 
 
+var filterByEmail = function (user) {
+    return
+}
+
 function login (req, res, next){
-    res.status(200).send({yo:"yo"});
+
+    //if (!req.body.email) res.status(500).send({error: 'email is required'});
+    //if (!req.body.password) res.status(500).send({error: 'password is required'});
+
+    var peopleEmail = data.people().filter(function (user) {
+        if (user.email === req.body.email) return true;
+    });
+
+    //if (!peopleEmail.length) res.status(500).send({error: 'user not found'});
+    //if (peopleEmail[0].password !== req.body.password) res.status(500).send({error: 'password invalid'});
+
+    delete peopleEmail[0].password;
+
+    res.send(peopleEmail[0]);
 }
 
 function getPeople(req, res, next) {

@@ -22,8 +22,8 @@
 
         $ctrl.user = {};
         $ctrl.login = {
-            email: null,
-            password: null
+            email: 'edunn0@yellowbook.com',
+            password: 'anVIqH7X'
         };
 
         var acctCreateModalOptions = {
@@ -36,53 +36,56 @@
         $ctrl.setupAcct = function () {
             $uibModalInstance.close();
             $uibModal.open(acctCreateModalOptions);
-        }
+        };
 
         var runScope = function () {
-            if(!$scope.$$phase) $scope.$apply();
-        }
+            if (!$scope.$$phase) { $scope.$apply(); }
+        };
 
         var openLoginForm = function () {
             $ctrl.view = 'login';
             runScope();
-        }
+        };
         var openAcctLocked = function () {
             $ctrl.view = 'locked';
             runScope();
-        }
+        };
         var openLoggingIn = function () {
             $ctrl.view = 'loggingIn';
             runScope();
-        }
+        };
 
-        var enableAcctLocked = function (){
+        var enableAcctLocked = function () {
             openAcctLocked();
-        }
-        var enableLoginForm = function (){
+        };
+        var enableLoginForm = function () {
             openLoginForm();
-        }
+        };
 
-        var loginFailed = function ($error){
-            if ($ctrl.loginattempts > 2) enableAcctLocked();
-            else enableLoginForm();
-        }
+        var loginFailed = function ($error) {
+            if ($ctrl.loginattempts > 2) { enableAcctLocked(); }
+            else { enableLoginForm(); }
+        };
 
-        var loginSuccess = function (){
+        var loginSuccess = function () {
             $ctrl.closeModal();
             $location.path('/dashboard');
-        }
+        };
 
         var attemptLogin = function () {
 
             $ctrl.loginattempts++;
             openLoggingIn();
 
-            if($ctrl.login && $ctrl.login.email && $ctrl.login.password) {
-                Auth.login($ctrl.user);
-                $ctrl.user = {
-                    email: 'yoyoyo',
-                    password: 'fdasd'
-                };
+            var getAuth = function () {
+                return Auth.login($ctrl.login);
+            };
+
+            if ($ctrl.login.email && $ctrl.login.password) {
+                var promises = [getAuth()];
+                return $q.all(promises).then(function () {
+                    logger.info('login loaded');
+                });
             }
             /*
             return dataservice.getLogin($ctrl.user).then(function (data) {
@@ -94,23 +97,21 @@
                 return data;
             });
             */
-        }
+        };
 
         $ctrl.loginFailed = loginFailed;
 
-        $ctrl.attemptLogin = function (){
+        $ctrl.attemptLogin = function () {
             attemptLogin();
-        }
+        };
 
         $ctrl.isView = function (view) {
             return $ctrl.view === view;
-        }
-
+        };
 
         $ctrl.closeModal = function () {
             $uibModalInstance.close();
-        }
-
+        };
 
     }
 })();
