@@ -29,7 +29,7 @@
                 size: 'md',
                 templateUrl: '/app/components/modals/recoveryemail/recoveryemail.html'
             }
-        }
+        };
 
         $uibModal.open(modalOptions.signInAgainOptions);
 
@@ -38,16 +38,16 @@
         $ctrl.recoveryEmailActive = false;
         $ctrl.openActiveSMS = function () {
             $uibModal.open(modalOptions.activatesms);
-        }
+        };
 
         $ctrl.openRecoveryEmail = function () {
             $uibModal.open(modalOptions.recoveryemail);
-        }
+        };
 
         var handleGetClient = function (data){
             $ctrl.client = data;
             return $ctrl.client;
-        }
+        };
 
     }
 })();

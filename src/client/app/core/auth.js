@@ -13,7 +13,7 @@
 
         var getUser = function (){
             return user;
-        }
+        };
         var login = function(user, callback) {
             var cb = callback || angular.noop;
             var deferred = $q.defer();
@@ -27,8 +27,8 @@
             });
 
             return deferred.promise;
-        }
-        var logout = function (){}
+        };
+        var logout = function (){};
 
         var service = {
             login: login,

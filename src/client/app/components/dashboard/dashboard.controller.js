@@ -28,7 +28,7 @@
          */
         $ctrl.openBillPay = function () {
             $uibModal.open(billPayModalOptions);
-        }
+        };
 
         /**
          * Handle the results returned from the data service
@@ -38,7 +38,7 @@
         var handleGetData = function (data){
             $ctrl.client = data;
             return $ctrl.client;
-        }
+        };
 
         /**
          * Call data service and get current client
@@ -46,7 +46,7 @@
          */
         var getData = function () {
             return dataservice.getPerson(getRandomIntInclusive(1,100)).then(handleGetData);
-        }
+        };
 
         getData();
     }

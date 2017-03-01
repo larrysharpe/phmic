@@ -14,11 +14,11 @@
 
         $ctrl.isView = function (view) {
             return $ctrl.view === view;
-        }
+        };
 
         $ctrl.closeModal = function () {
             $uibModalInstance.close();
-        }
+        };
 
     }
 })();

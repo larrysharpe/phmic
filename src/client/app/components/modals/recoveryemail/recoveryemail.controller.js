@@ -13,7 +13,7 @@
 
         $ctrl.closeModal = function () {
             $uibModalInstance.close();
-        }
+        };
 
 
     }

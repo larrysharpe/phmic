@@ -38,41 +38,41 @@
         $ctrl.setupAcct = function () {
             $uibModalInstance.close();
             $uibModal.open(acctCreateModalOptions);
-        }
+        };
 
         var runScope = function () {
-            if(!$scope.$$phase) $scope.$apply();
-        }
+            if(!$scope.$$phase) { $scope.$apply(); }
+        };
 
         var openLoginForm = function () {
             $ctrl.view = 'login';
             runScope();
-        }
+        };
         var openAcctLocked = function () {
             $ctrl.view = 'locked';
             runScope();
-        }
+        };
         var openLoggingIn = function () {
             $ctrl.view = 'loggingIn';
             runScope();
-        }
+        };
 
         var enableAcctLocked = function (){
             openAcctLocked();
-        }
+        };
         var enableLoginForm = function (){
             openLoginForm();
-        }
+        };
 
         var loginFailed = function ($error){
-            if ($ctrl.loginattempts > 2) enableAcctLocked();
-            else enableLoginForm();
-        }
+            if ($ctrl.loginattempts > 2) { enableAcctLocked(); }
+            else { enableLoginForm(); }
+        };
 
         var loginSuccess = function (){
             $ctrl.closeModal();
             $location.path('/dashboard');
-        }
+        };
 
         var attemptLogin = function () {
 
@@ -96,22 +96,22 @@
                 return data;
             });
             */
-        }
+        };
 
         $ctrl.loginFailed = loginFailed;
 
         $ctrl.attemptLogin = function (){
             attemptLogin();
-        }
+        };
 
         $ctrl.isView = function (view) {
             return $ctrl.view === view;
-        }
+        };
 
 
         $ctrl.closeModal = function () {
             $uibModalInstance.close();
-        }
+        };
 
 
     }

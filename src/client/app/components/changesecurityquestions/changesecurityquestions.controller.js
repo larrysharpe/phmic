@@ -22,7 +22,7 @@
         var handleGetClient = function (data){
             $ctrl.client = data;
             return $ctrl.client;
-        }
+        };
 
     }
 })();
