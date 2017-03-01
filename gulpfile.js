@@ -40,6 +40,10 @@
         .task('package-fonts', getTask('package-fonts'))
         .task('package-html-static', getTask('package-html-static'))
         .task('package-optimize',
+             gulpsync.sync(['clean', 'build-no-test', 'package-html-static', 'package-i18n',
+                 'package-html-static', 'package-fonts', 'package-images']),
+             getTask('package-optimize'))
+        .task('package-optimize-test',
              gulpsync.sync(['clean', 'build', 'package-html-static', 'package-i18n',
                  'package-html-static', 'package-fonts', 'package-images']),
              getTask('package-optimize'));
@@ -66,6 +70,9 @@
     * --nosync
     */
     gulp.task('serve-build', ['package-optimize'], function() {
+        serve(gulp, plugins, config, args, false /*isDev*/, false /* specRunner */);
+    });
+    gulp.task('serve-build-test', ['package-optimize-test'], function() {
         serve(gulp, plugins, config, args, false /*isDev*/, false /* specRunner */);
     });
 
