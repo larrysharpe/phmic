@@ -25,8 +25,7 @@
     <!-- endinject -->
     <!-- endbuild -->
 </head>
-<body>
-    <div id="splash"></div>
+<body ng-controller="BodyController as $bodyctrl" class="{{$bodyctrl.theme}}">
     <!-- build:js assets/js/modernizr-custom.js -->
     <script src="/src/client/assets/js/modernizr-custom.js"></script>
     <!-- endbuild -->
@@ -71,6 +70,12 @@
     <script src="/src/client/app/components/profile/profile.module.js"></script>
     <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app/layout/layout.module.js"></script>
+    <script src="/src/client/app/Pages/AboutUs/AboutUs.module.js"></script>
+    <script src="/src/client/app/Pages/Careers/Careers.module.js"></script>
+    <script src="/src/client/app/Pages/Contact/Contact.module.js"></script>
+    <script src="/src/client/app/Pages/News/News.module.js"></script>
+    <script src="/src/client/app/Pages/PrivacyPolicy/PrivacyPolicy.module.js"></script>
+    <script src="/src/client/app/Pages/Whistleblower/Whistleblower.module.js"></script>
     <script src="/src/client/app/shared/shared.module.js"></script>
     <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
     <script src="/src/client/app/blocks/exception/exception.js"></script>
@@ -100,9 +105,22 @@
     <script src="/src/client/app/core/auth.js"></script>
     <script src="/src/client/app/core/config.js"></script>
     <script src="/src/client/app/core/constants.js"></script>
+    <script src="/src/client/app/core/core.body.contoller.js"></script>
     <script src="/src/client/app/core/core.route.js"></script>
     <script src="/src/client/app/core/dataservice.js"></script>
     <script src="/src/client/app/layout/shell.controller.js"></script>
+    <script src="/src/client/app/Pages/AboutUs/AboutUs.controller.js"></script>
+    <script src="/src/client/app/Pages/AboutUs/AboutUs.route.js"></script>
+    <script src="/src/client/app/Pages/Careers/Careers.controller.js"></script>
+    <script src="/src/client/app/Pages/Careers/Careers.route.js"></script>
+    <script src="/src/client/app/Pages/Contact/Contact.controller.js"></script>
+    <script src="/src/client/app/Pages/Contact/Contact.route.js"></script>
+    <script src="/src/client/app/Pages/News/News.controller.js"></script>
+    <script src="/src/client/app/Pages/News/News.route.js"></script>
+    <script src="/src/client/app/Pages/PrivacyPolicy/PrivacyPolicy.controller.js"></script>
+    <script src="/src/client/app/Pages/PrivacyPolicy/PrivacyPolicy.route.js"></script>
+    <script src="/src/client/app/Pages/Whistleblower/Whistleblower.controller.js"></script>
+    <script src="/src/client/app/Pages/Whistleblower/Whistleblower.route.js"></script>
     <script src="/src/client/app/shared/directives/my-directive.js"></script>
     <script src="/src/client/app/shared/filters/my-filter.js"></script>
     <!-- endinject -->

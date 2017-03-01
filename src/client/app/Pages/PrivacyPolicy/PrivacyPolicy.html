@@ -1,0 +1,87 @@
+<section id="dashboard-view" class="view">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="content-box content-container">
+                    <div class="content-box-header">
+                        <h2 content-box-title>Privacy Policy</h2>
+                    </div>
+                    <div class="content-box-body">
+                        <p>
+                            Enter a new password below. The password must meet the minimum requirements specified.
+                        </p>
+
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                                    <div class="label-badge">
+                                        <label for="password">Create A Password</label>
+                                    </div>
+                                    <input type="password" placeholder="enter password code" ng-model="$ctrl.acct.password" class="form-control" id="password" required>
+                                </div>
+                                <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group"
+                                     ng-if="$ctrl.showConfirm()">
+                                    <div class="label-badge">
+                                        <label for="confirm-password">Re-enter Password</label>
+                                    </div>
+                                    <input type="password" placeholder="re-enter password code" ng-model="$ctrl.acct.confirmpassword" class="form-control" id="confirm-password" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>Password Strength</p>
+                                <ng-password-meter password="$ctrl.acct.password"></ng-password-meter>
+
+                                <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                                    <ul class="list-unstyled">
+                                        <li ng-class="{'text-danger': !$ctrl.checkPasswordLength(), 'text-success':$ctrl.checkPasswordLength() }">
+                                            <i class="fa fa-times" ng-if="!$ctrl.checkPasswordLength()"></i>
+                                            <i class="fa fa-check" ng-if="$ctrl.checkPasswordLength()"></i>
+                                            Make password at least 10 characters long
+                                        </li>
+                                        <li ng-class="{'text-danger': !$ctrl.checkForUppercase(), 'text-success':$ctrl.checkForUppercase() }">
+                                            <i class="fa fa-times" ng-if="!$ctrl.checkForUppercase()"></i>
+                                            <i class="fa fa-check" ng-if="$ctrl.checkForUppercase()"></i>
+                                            Include at least one uppercase letter
+                                        </li>
+                                        <li ng-class="{'text-danger': !$ctrl.checkForLowercase(), 'text-success':$ctrl.checkForLowercase() }">
+                                            <i class="fa fa-times" ng-if="!$ctrl.checkForLowercase()"></i>
+                                            <i class="fa fa-check" ng-if="$ctrl.checkForLowercase()"></i>
+                                            Include at least one lowercase letter
+                                        </li>
+                                        <li ng-class="{'text-danger': !$ctrl.checkForNumber(), 'text-success':$ctrl.checkForNumber() }">
+                                            <i class="fa fa-times" ng-if="!$ctrl.checkForNumber()"></i>
+                                            <i class="fa fa-check" ng-if="$ctrl.checkForNumber()"></i>
+                                            Include at least one number
+                                        </li>
+                                        <li ng-class="{'text-danger': $ctrl.hasRepeatedLetters(), 'text-success':!$ctrl.hasRepeatedLetters() }">
+                                            <i class="fa fa-times" ng-if="$ctrl.hasRepeatedLetters()"></i>
+                                            <i class="fa fa-check" ng-if="!$ctrl.hasRepeatedLetters()"></i>
+                                            Don't use repeating characters (e.g. 111)
+                                        </li>
+                                        <li ng-class="{'text-danger': $ctrl.checkForWords(), 'text-success':!$ctrl.checkForWords() }">
+                                            <i class="fa fa-times" ng-if="$ctrl.checkForWords()"></i>
+                                            <i class="fa fa-check" ng-if="!$ctrl.checkForWords()"></i>
+                                            Don't use the word "password" or anything like it
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-right">
+                            <a class="btn btn-danger" href="/dashboard">
+                                <i class="fa fa-times" aria-hidden="true"></i> Don't make changes
+                            </a>
+                            <a class="btn btn-primary" href="">
+                                <i class="fa fa-times" aria-hidden="true"></i> Proceed with change
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -22,7 +22,7 @@
             $location.path('/');
         };
 
-        var themeDark = ['dashboard', 'policy', 'profile', 'changepassword', 'changesecurityquestions', 'improveaccountsecurity'];
+        var themeDark = ['dashboard', 'policy', 'profile', 'changepassword', 'changesecurityquestions', 'improveaccountsecurity', 'about-us'];
 
         var setPageAndTheme = function () {
             $ctrl.page = $state.current.name;
