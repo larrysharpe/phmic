@@ -1,48 +1,19 @@
-var router = require('express').Router();
-var four0four = require('./utils/404')();
-var data = require('./data');
+var data = require('../data');
 var jwt = require('jsonwebtoken');
 var _tmpToken = 'dfev3t5v35vfevrverfevegbt5';
-
-
-router.post('/unauth/validate', createAccessCode); /// create access code
-router.post('/unauth/resend', resendAccessCode); /// resend access code
-router.post('/unauth/access', createAccessPoint); /// ???
-router.post('/unauth/user', createUserAccount); /// ???
-router.post('/unauth/resetpassword', passwordReset); /// ???
-router.post('/unauth/resetpassword/:token', passwordResetToken); /// ???
-router.post('/auth', login); /// login
-
-
-router.get('/clients', getPeople);
-router.get('/clients/:id', getPerson);
-router.get('/user/info', getUser);
-
-router.get('/policies/:userid', getPoliciesByUser);
-router.get('/policies/byType/:type', getPoliciesByType);
-router.get('/policy/:id', getPolicy);
-
-
-router.get('/*', four0four.notFoundMiddleware);
-
-
-module.exports = router;
-
-//////////////
-
 var tokens = {};
 
-function passwordReset (req, res, next) {
+exports.passwordReset = function  (req, res, next) {
     if (!req.body.email) return res.status(500).send({error: 'email is required'});
     return res.status(200).send('ok');
 }
 
-function passwordResetToken (req, res, next) {
+exports.passwordResetToken = function  (req, res, next) {
     if (!req.body.email) return res.status(500).send({error: 'email is required'});
     return res.status(200).send('ok');
 }
 
-function createAccessPoint (req, res, next){
+exports.createAccessPoint = function  (req, res, next){
     if (!req.body.email) return res.status(500).send({error: 'email is required'});
     if (!req.body.customerNumber) return res.status(500).send({error: 'customer number is required'});
     if (!req.body.accessCode) return res.status(500).send({error: 'access number is required'});
@@ -50,25 +21,22 @@ function createAccessPoint (req, res, next){
     return res.status(200).send('ok');
 }
 
-function createUserAccount (req, res, next){
+exports.createUserAccount = function  (req, res, next){
     if (!req.body.email) return res.status(500).send({error: 'email is required'});
     if (!req.body.customerNumber) return res.status(500).send({error: 'customer number is required'});
     if (!req.body.password) return res.status(500).send({error: 'password is required'});
     console.log('Access Code Confirmed');
-    var peopleEmail = data.people().filter(function (user) {
-        if (user.email === req.body.email) return true;
-    });
     return res.status(200).send({token: _tmpToken});
 }
 
-function createAccessCode (req, res, next){
+exports.createAccessCode = function  (req, res, next){
     if (!req.body.email) return res.status(500).send({error: 'email is required'});
     if (!req.body.customerNumber) return res.status(500).send({error: 'customer number is required'});
     console.log('CODE: asfadgrtartartatvt');
     return res.status(200).send('ok');
 }
 
-function resendAccessCode (req, res, next){
+exports.resendAccessCode = function  (req, res, next){
     if (!req.body.email) return res.status(500).send({error: 'email is required'});
     if (!req.body.customerNumber) return res.status(500).send({error: 'customer number is required'});
     console.log('CODE: asfadgrtartartatvt')
@@ -76,7 +44,7 @@ function resendAccessCode (req, res, next){
 }
 
 
-function login (req, res, next){
+exports.login = function  (req, res, next){
 
     if (!req.body.email) return res.status(500).send({error: 'email is required'});
     if (!req.body.password) return res.status(500).send({error: 'password is required'});
@@ -106,11 +74,11 @@ function login (req, res, next){
     }
 }
 
-function getPeople(req, res, next) {
+exports.getPeople = function (req, res, next) {
     return res.status(200).send('ok');
 }
 
-function getPerson(req, res, next) {
+exports.getPerson = function (req, res, next) {
     var id = +req.params.id;
 
     var person = data.people().filter(function(p) {
@@ -125,33 +93,30 @@ function getPerson(req, res, next) {
     }
 }
 
-function getPoliciesByUser (req, res, next){
-    var policies = data.getPoliciesByUser(req.params.userid);
-    return res.status(200).json(policies);
+exports.getPoliciesByUser = function  (req, res, next){
+    return res.status(200).send(data.getPoliciesByUser);
 }
 
 
-function getPolicy(req, res, next){
+exports.getPolicy = function (req, res, next){
     var policy = data.getPolicy(req.params.id);
     if (!policy) return res.status(404);
     else return res.status(200).send(policy);
 }
 
-function getPoliciesByType (req, res, next){
+exports.getPoliciesByType = function  (req, res, next){
     var policies = data.getPoliciesByType(req.params.type);
     if (!policies) return res.status(404);
     else return res.status(200).send(policies);
 }
 
-function getUser (req,res,next) {
+exports.getUser = function  (req,res,next) {
 
     if (!req.headers.authorization) {
         return res.sendStatus(401).send('not authorized');
     }
 
     var authToken = req.headers.authorization.replace(/Bearer /,'');
-
-    console.log(tokens);
 
     if(tokens[authToken]) return res.send(tokens[authToken]);
     else return res.sendStatus(401).send('not authorized');

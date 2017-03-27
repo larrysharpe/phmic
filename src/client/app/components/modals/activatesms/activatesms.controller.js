@@ -5,13 +5,10 @@
         .module('app.activatesms')
         .controller('ActivateSMSController', ActivateSMSController);
 
-    ActivateSMSController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$uibModal', '$scope', '$location', 'Auth'];
+    ActivateSMSController.$inject = ['$uibModalInstance'];
     /* @ngInject */
-    function ActivateSMSController($q, dataservice, logger, $uibModalInstance, $uibModal, $scope, $location, Auth) {
+    function ActivateSMSController($uibModalInstance) {
         var $ctrl  = this;
-
-        $ctrl.closeModal = function () {
-            $uibModalInstance.close();
-        };
+        $ctrl.closeModal = $uibModalInstance.close;
     }
 })();

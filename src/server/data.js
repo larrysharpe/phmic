@@ -16,11 +16,12 @@ var  getPeople = function () {
 }
 
 var getPoliciesByUser = function (userid){
-
     var res = [];
 
     for (var i = 0; i < policies.length; i++){
-        if (policies[i].userid === userid) res.push(policies[i]);
+        if (policies[i].userid === Number(userid)) {
+            res.push(policies[i]);
+        }
     };
 
     var sortedPolicies = res.slice(0);
@@ -29,6 +30,8 @@ var getPoliciesByUser = function (userid){
         var y = b.TypeName.toLowerCase();
         return x < y ? -1 : x > y ? 1 : 0;
     });
+
+    console.log(sortedPolicies);
 
     return sortedPolicies;
 }

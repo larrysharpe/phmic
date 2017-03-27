@@ -5,9 +5,9 @@
         .module('app.acctcreatemodal')
         .controller('AcctcreatemodalController', AcctcreatemodalController);
 
-    AcctcreatemodalController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance'];
+    AcctcreatemodalController.$inject = ['$q', 'dataservice', 'logger', '$uibModalInstance', '$location', 'Auth'];
     /* @ngInject */
-    function AcctcreatemodalController($q, dataservice, logger, $uibModalInstance) {
+    function AcctcreatemodalController($q, dataservice, logger, $uibModalInstance, $location, Auth) {
         var $ctrl  = this;
 
         $ctrl.currentStep = 1;
@@ -16,6 +16,21 @@
         $ctrl.showStepControls = true;
         $ctrl.showCancelConfirmation = false;
         $ctrl.acct = {};
+
+        //todo: remove test data
+        $ctrl.acct = {
+            accesscode: 'asfadgrtartartatvt',
+            customerno: 123354,
+            email: 'kblack6@washingtonpost.com',
+            password: 'eefwwewfwA1',
+            confirmpassword: 'eefwwewfwA1',
+            securityquestions: [
+                {question: 'What was your childhood nickname1?', answer: 'wefwfewfef'},
+                {question: 'What was your childhood nickname2?', answer: 'ewfwefwf'},
+                {question: 'What was your childhood nickname3?', answer: 'wefwefwfefe'}
+            ]
+
+        };
 
         $ctrl.showNextStep = function () {
             return $ctrl.currentStep < ($ctrl.totalSteps - 1);
@@ -27,9 +42,55 @@
             return $ctrl.currentStep === $ctrl.totalSteps;
         };
 
-        $ctrl.nextStep = function () {
+        var continueSteps = function () {
             $ctrl.currentStep++;
-            $ctrl.fillWidth =  (($ctrl.currentStep - 1) / $ctrl.totalSteps) * 100 ;
+            $ctrl.fillWidth =  (($ctrl.currentStep - 1) / $ctrl.totalSteps) * 100;
+        };
+
+        var continuationFunctions = {
+            step1: function () {
+                dataservice
+                    .createAccessCode($ctrl.acct.email, $ctrl.acct.customerno)
+                    .then(function(res) {
+                        if (res.data === 'ok') {
+                            continueSteps();
+                        }
+                    });
+            },
+            step2: function () {
+                dataservice
+                    .createAccessPoint($ctrl.acct.email, $ctrl.acct.customerno, $ctrl.acct.accesscode)
+                    .then(function(res) {
+                        if (res.data === 'ok') {
+                            continueSteps();
+                        }
+                    });
+            },
+            step3: function () {
+                continueSteps();
+            },
+            step4: function () {
+                dataservice
+                    .createUserAccount($ctrl.acct)
+                    .then(function(res) {
+                        continueSteps();
+                        Auth.processLogin(res.data.user, res.data.token);
+                        $ctrl.closeModal();
+                        $location.path('/dashboard');
+                    })
+                    .catch(function(e) {
+                        console.log(e);
+                    })
+                ;
+            }
+        };
+
+        $ctrl.resendAccessCode = function () {
+            dataservice.resendAccessCode($ctrl.acct.email, $ctrl.acct.customerno);
+        };
+
+        $ctrl.nextStep = function () {
+            continuationFunctions['step' + $ctrl.currentStep]();
         };
 
         var showCancelConfirmation = function () {
@@ -74,59 +135,6 @@
         $ctrl.showConfirm = function () {
             return (!$ctrl.checkForWords() && !$ctrl.hasRepeatedLetters() && $ctrl.checkForNumber() &&
             $ctrl.checkForLowercase() && $ctrl.checkForUppercase() && $ctrl.checkPasswordLength());
-        };
-
-        $ctrl.loginattempts = 0;
-        $ctrl.loginFormSection = 'yo';
-        $ctrl.acctLockedSectionOpen = '';
-        $ctrl.logginInSectionOpen = '';
-
-        var openLoginForm = function () {
-            $ctrl.loginFormSection = 'open';
-        };
-        var openAcctLocked = function () {
-            $ctrl.acctLockedSectionOpen = 'open';
-        };
-        var openLoggingIn = function () {
-            $ctrl.logginInSectionOpen = 'open';
-        };
-        var closeLoginForm = function () {
-            $ctrl.loginFormSection = '';
-        };
-        var closeAcctLocked = function () {
-            $ctrl.acctLockedSectionOpen = '';
-        };
-        var closeLoggingIn = function () {
-            $ctrl.logginInSectionOpen = '';
-        };
-
-        var enableAcctLocked = function () {
-            openAcctLocked();
-            closeLoginForm();
-            closeAcctLocked();
-        };
-        var enableLoginForm = function () {
-            closeLoggingIn();
-            closeAcctLocked();
-            openLoginForm();
-        };
-
-        var loginFailed = function () {
-            if ($ctrl.loginattempts > 2) { enableAcctLocked(); }
-            else { enableLoginForm(); }
-        };
-
-        var attemptLogin = function () {
-            $ctrl.loginattempts++;
-            openLoggingIn();
-            closeLoginForm();
-            loginFailed();
-        };
-
-        $ctrl.loginFailed = loginFailed;
-
-        $ctrl.attemptLogin = function () {
-            attemptLogin();
         };
 
         $ctrl.closeModal = function () {

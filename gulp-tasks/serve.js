@@ -16,7 +16,7 @@ module.exports = function (gulp, plugins, config, args, isDev, specRunner) {
     /**
      * serve the code
      * --debug-brk or --debug
-     * --nosync
+     * --nosync --no-test
      * @param  {Boolean} isDev - dev or build mode
      * @param  {Boolean} specRunner - server spec runner html
      */
