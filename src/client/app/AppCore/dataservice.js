@@ -82,14 +82,18 @@
             };
         }
         function getUser () {
-            $http.get(DataUrls.GET_USER)
-                .then(function(res) {
-                    deferred.resolve(res);
-                },function(res) {
-                    deferred.reject(res);
-                });
+            var d = $q.defer();
 
-            return deferred.promise;
+            $http.get(DataUrls.GET_USER)
+            .then(function(res) {
+                var usr = (res.data) ? res.data : res;
+                d.resolve(usr);
+            })
+            .catch(function(err) {
+                d.reject(err);
+            });
+
+            return d.promise;
         }
         function login (user, callback) {
             var cb = callback || angular.noop;

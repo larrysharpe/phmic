@@ -4,7 +4,6 @@ var data = require('./data');
 var jwt = require('jsonwebtoken');
 var _tmpToken = 'dfev3t5v35vfevrverfevegbt5';
 
-
 router.post('/unauth/validate', createAccessCode); /// create access code
 router.post('/unauth/resend', resendAccessCode); /// resend access code
 router.post('/unauth/access', createAccessPoint); /// ???
@@ -98,10 +97,13 @@ function login (req, res, next){
         if (user.email === email) return true;
     });
 
+
+
     if (!peopleEmail.length) return res.status(500).send({error: 'user not found'});
     else if (peopleEmail[0].password !== password) return res.status(500).send({error: 'password invalid'});
     else {
         tokens[_tmpToken] = peopleEmail[0];
+        tokens[_tmpToken].policies = data.getPoliciesByUser(tokens[_tmpToken].id);
         return res.json({token: _tmpToken});
     }
 }
@@ -150,8 +152,6 @@ function getUser (req,res,next) {
     }
 
     var authToken = req.headers.authorization.replace(/Bearer /,'');
-
-    console.log(tokens);
 
     if(tokens[authToken]) return res.send(tokens[authToken]);
     else return res.sendStatus(401).send('not authorized');

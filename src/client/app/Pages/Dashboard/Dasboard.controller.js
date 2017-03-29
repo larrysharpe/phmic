@@ -5,9 +5,10 @@
         .module('app.dashboard')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['dataservice', 'Auth'];
+    DashboardController.$inject = ['Auth'];
     /* @ngInject */
-    function DashboardController(dataservice, Auth) {
+    function DashboardController(Auth) {
         var $ctrl = this;
+        $ctrl.getCurrentUser = Auth.getCurrentUser;
     }
 })();

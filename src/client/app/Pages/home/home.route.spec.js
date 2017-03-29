@@ -1,7 +1,7 @@
 /* jshint -W117, -W030 */
 describe('dashboard routes', function () {
     describe('state', function () {
-        var view = 'app/Pages/home/home.html';
+        var view = 'app/Pages/Home/Home.html';
 
         beforeEach(function() {
             module('app.home', bard.fakeToastr);

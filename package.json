@@ -59,6 +59,7 @@
     "gulp-useref": "^1.0.2",
     "gulp-util": "^3.0.1",
     "gulp-watch": "^4.3.5",
+    "gulp-zip": "^4.0.0",
     "imagemin-pngcrush": "^4.1.0",
     "imagemin-pngquant": "^4.2.0",
     "jpegtran-bin": "^3.0.6",

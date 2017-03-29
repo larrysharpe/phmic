@@ -30,45 +30,45 @@
 
         $ctrl.displayFields = {
             'ClientInformation':[
-                {name: 'Name', displayName: 'Insured Name'},
-                {name: 'Address', displayName: 'Mailing Address'},
-                {name: 'WorkPhone', displayName: 'Wok Phone'},
-                {name: 'HomePhone', displayName: 'Home Phone'},
-                {name: 'CellPhone', displayName: 'Cell Phone'},
-                {name: 'WorkEmail', displayName: 'Work Email'},
-                {name: 'PersonalEmail', displayName: 'Personal Email'},
-                {name: 'WebAddress', displayName: 'Web Address'},
-                {name: 'Fax', displayName: 'Fax'}
+                {name: 'name', displayName: 'Insured Name'},
+                {name: 'address', displayName: 'Mailing Address'},
+                {name: 'workPhone', displayName: 'Wok Phone'},
+                {name: 'homePhone', displayName: 'Home Phone'},
+                {name: 'cellPhone', displayName: 'Cell Phone'},
+                {name: 'workEmail', displayName: 'Work Email'},
+                {name: 'personalEmail', displayName: 'Personal Email'},
+                {name: 'webAddress', displayName: 'Web Address'},
+                {name: 'fax', displayName: 'Fax'}
             ],
             'DriverInformation':[
-                {name: 'Name', displayName: 'Driver Name'},
-                {name: 'DOB', displayName: 'Date of Birth'},
-                {name: 'LicenseNum', displayName: 'License Number'},
-                {name: 'MaritalStatus', displayName: 'Martial Status'},
-                {name: 'GoodStudent', displayName: 'Good Student'},
-                {name: 'DefensiveDriver', displayName: 'Defensive Driver'},
-                {name: 'ExcludedDriver', displayName: 'Excluded Driver'},
-                {name: 'DriversTraining', displayName: 'Driver Training'}
+                {name: 'name', displayName: 'Driver Name'},
+                {name: 'dob', displayName: 'Date of Birth'},
+                {name: 'licenseNum', displayName: 'License Number'},
+                {name: 'maritalStatus', displayName: 'Martial Status'},
+                {name: 'goodStudent', displayName: 'Good Student'},
+                {name: 'defensiveDriver', displayName: 'Defensive Driver'},
+                {name: 'excludedDriver', displayName: 'Excluded Driver'},
+                {name: 'driversTraining', displayName: 'Driver Training'}
             ],
             'PolicyInformation':[
-                {name: 'PolicyNum', displayName: 'Policy Number'},
-                {name: 'CustomerNum', displayName: 'Customer Number'},
-                {name: 'Contact', displayName: 'Contact Name'},
-                {name: 'PolicyStatus', displayName: 'Policy Status'},
-                {name: 'EffDate', displayName: 'Effective Date'},
-                {name: 'ExpDate', displayName: 'Expiration Date'},
-                {name: 'TWP', displayName: 'Total Written Premium'}
+                {name: 'policyNum', displayName: 'Policy Number'},
+                {name: 'customerNum', displayName: 'Customer Number'},
+                {name: 'contact', displayName: 'Contact Name'},
+                {name: 'policyStatus', displayName: 'Policy Status'},
+                {name: 'effDate', displayName: 'Effective Date'},
+                {name: 'expDate', displayName: 'Expiration Date'},
+                {name: 'twp', displayName: 'Total Written Premium'}
             ],
             'UnitInformation':[
-                {name: 'Year', displayName: 'Year'},
-                {name: 'MakeModel', displayName: 'Make/Model'},
-                {name: 'VIN', displayName: 'VIN'},
-                {name: 'FullAddr', displayName: 'Garaging Location'},
-                {name: 'Premium', displayName: 'Premium'}
+                {name: 'year', displayName: 'Year'},
+                {name: 'makeModel', displayName: 'Make/Model'},
+                {name: 'vin', displayName: 'VIN'},
+                {name: 'fullAddr', displayName: 'Garaging Location'},
+                {name: 'premium', displayName: 'Premium'}
             ],
             'PolicyInterests':[
-                {name: 'Name', displayName: 'Name'},
-                {name: 'Address', displayName: 'Address'}
+                {name: 'name', displayName: 'Name'},
+                {name: 'address', displayName: 'Address'}
             ]
         };
 

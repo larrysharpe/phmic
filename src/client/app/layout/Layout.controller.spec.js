@@ -8,7 +8,7 @@ describe('ShellController', function() {
     });
 
     beforeEach(function () {
-        controller = $controller('ShellController');
+        controller = $controller('LayoutController');
         $rootScope.$apply();
     });
 

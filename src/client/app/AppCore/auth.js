@@ -5,76 +5,63 @@
         .module('app.core')
         .factory('Auth', Auth);
 
-    Auth.$inject = ['$base64', '$cookieStore', 'dataservice', '$location', '$q'];
-    /* @ngInject */
-    function Auth($base64, $cookieStore, dataservice, $location, $q) {
+    Auth.$inject = ['$base64', '$cookieStore', 'dataservice', '$location', '$q', '$http'];
 
+    function Auth($base64, $cookieStore, dataservice, $location, $q, $http) {
+        var svc = {};
+        var clientToken = $cookieStore.get('token');
         var currentUser = {};
-        var loggedIn = false;
-        var deferred = $q.defer();
+        if (clientToken) {
+            dataservice.getUser().then(function (res) {
+                currentUser = res;
+            });
+        }
 
-        var getToken = function() {
-            return $cookieStore.get('token');
-        };
-
-        var getUser = function () {
-            console.log(currentUser);
+        svc.getCurrentUser = function() {
             return currentUser;
         };
 
-        var loadUser = function () {
-            dataservice.getUser().then(function(user) {
-                currentUser = user.data;
-                deferred.resolve(currentUser);
-                return currentUser;
-            });
+        svc.getToken = function() {
+            return $cookieStore.get('token');
         };
 
-        var isLoggedIn = function () {
-            return loggedIn;
+        svc.isLoggedIn = function() {
+            return currentUser.hasOwnProperty('id');
         };
 
-        var processLogin = function (token) {
-            loggedIn = true;
-            $cookieStore.put('token', token);
-            loadUser();
+        svc.login = function(user, callback) {
+            var cb = callback || angular.noop;
+            var deferred = $q.defer();
+
+            $http.post('api/auth', {
+                email: $base64.encode(user.email),
+                password: $base64.encode(user.password)
+            })
+            .then(function(res) {
+                var tkn = (res.data.token) ? res.data.token : res.token;
+                $cookieStore.put('token', tkn);
+                dataservice.getUser().then(function(res) {
+                    currentUser = res;
+                });
+                deferred.resolve(tkn);
+                return cb();
+            })
+            .catch(function(err) {
+                console.log('Caught Error!!!', err);
+                this.logout();
+                deferred.reject(err);
+                return cb(err);
+            }.bind(this));
+
+            return deferred.promise;
         };
 
-        var login = function(user, callback) {
-            var email = $base64.encode(user.email);
-            var password = $base64.encode(user.password);
-
-            return dataservice.login({
-                email: email,
-                password: password
-            }, function(tokendata) {
-                processLogin(tokendata.data.token);
-            });
-        };
-
-        var logout = function () {
+        svc.logout = function() {
             $cookieStore.remove('token');
-            loggedIn = false;
             currentUser = {};
-            console.log('go home');
             $location.path('/');
         };
 
-
-
-        if ($cookieStore.get('token')) {
-            loadUser();
-        }
-
-        var service = {
-            getUser: getUser,
-            getToken: getToken,
-            isLoggedIn: isLoggedIn,
-            login: login,
-            logout: logout,
-            processLogin: processLogin
-        };
-
-        return service;
+        return svc;
     }
 })();

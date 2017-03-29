@@ -8,20 +8,19 @@
                     </div>
                     <div class="content-box-body">
                         <h3>Policyholder Information</h3>
-                        {{$ctrl.client}}
                         <p>
-                            {{$ctrl.client.first_name}} {{$ctrl.client.last_name}}
+                            {{$ctrl.getCurrentUser().first_name}} {{$ctrl.getCurrentUser().last_name}}
                         </p>
                         <p>
-                            {{$ctrl.client.address}}
+                            {{$ctrl.getCurrentUser().address}}
                         </p>
                         <p>
-                            {{$ctrl.client.city}}, {{$ctrl.client.state}} {{$ctrl.client.zip}}
+                            {{$ctrl.getCurrentUser().city}}, {{$ctrl.getCurrentUser().state}} {{$ctrl.getCurrentUser().zip}}
                         </p>
                         <h3>Active Policies</h3>
                         <p>Click on any policy below to see additional details.</p>
                         <ul class="list-unstyled">
-                            <li ng-repeat="policy in $ctrl.client.policies">
+                            <li ng-repeat="policy in $ctrl.getCurrentUser().policies">
                                 <a href="/policy/{{policy.id}}">
                                     {{policy.TypeName}} Policy
                                 </a>

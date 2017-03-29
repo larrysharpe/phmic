@@ -31,8 +31,6 @@ var getPoliciesByUser = function (userid){
         return x < y ? -1 : x > y ? 1 : 0;
     });
 
-    console.log(sortedPolicies);
-
     return sortedPolicies;
 }
 
