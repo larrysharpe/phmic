@@ -1,0 +1,27 @@
+<section class="login-form-section">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Activate Recovery Email</h3>
+        <a href="" ng-click="$ctrl.closeModal()" class="modal-close-btn"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+    </div>
+    <div class="modal-body" id="modal-body">
+       <form class="loginmodalform" name="loginmodalform">
+           <p>Enter a second email that we'll use to recover your account, in case you can't remember your password.</p>
+           <p>This must be different from the email address you use to log into your account.</p>
+           <p class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+               <label>Recovery Email Address</label> <br>
+               <input type="email" placeholder="enter email" class="form-control" tooltip-placement="auto" uib-tooltip="{{$ctrl.toolTipEmail}}" ng-model="$ctrl.login.email" required>
+           </p><br>
+           <p>
+               <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
+                   <i class="fa fa-times" aria-hidden="true"></i>
+                   Cancel recovery setup
+               </button>
+               <button class="btn btn-primary" ng-click="$ctrl.attemptLogin()">
+                   <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+                   Submit recovery email
+               </button>
+           </p>
+       </form>
+    </div>
+</section>
+

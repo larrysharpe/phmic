@@ -1,0 +1,44 @@
+<section id="dashboard-view" class="view">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="content-box content-container">
+                    <div class="content-box-header">
+                        <h2 content-box-title>Change Security Questions</h2>
+                    </div>
+                    <div class="content-box-body">
+                        <p>
+                            Select the question you'd like to change. This will clear out the existing question and answer.
+                        </p>
+
+                        <div ng-repeat="sec in $ctrl.acct.securityquestions">
+                            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                                <div class="label-badge">
+                                    <label for="security-question-{{$index + 1}}">Create Question {{$index + 1}}</label>
+                                </div>
+                                <input type="text" ng-model="sec.question" class="form-control" id="security-question-{{$index + 1}}" required>
+                            </div>
+                            <div class="text-left visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block form-group">
+                                <div class="label-badge">
+                                    <label for="security-answer-{{$index + 1}}">Answer Question {{$index + 1}}</label>
+                                </div>
+                                <input type="text" ng-model="sec.answer" class="form-control" id="security-answer-{{$index + 1}}" required>
+                            </div>
+                        </div>
+
+                        <p class="text-right">
+                            <a class="btn btn-danger" href="/dashboard">
+                                <i class="fa fa-home" aria-hidden="true"></i> Return to home
+                            </a>
+                            <a class="btn btn-primary" href="">
+                                <i class="fa fa-times" aria-hidden="true"></i> Proceed with change
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

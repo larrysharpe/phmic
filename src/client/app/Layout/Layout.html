@@ -1,0 +1,71 @@
+<div ng-controller="LayoutController as $ctrl" class="page-container page-{{$ctrl.page}} {{$ctrl.themeclass}}">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/">
+                    <img src="/assets/img/phmiclogo-dark.png" class="site-logo theme-dark-inline">
+                    <img src="/assets/img/phmiclogo-light.png" class="site-logo theme-light-inline">
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="pay-bill-link" ng-if="$ctrl.showPayBill()">
+                    <a href="" ng-click="$ctrl.modals.open('billPay')">Pay Bill</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right nav-primary">
+                    <li ng-show="!$ctrl.loggedIn()"><a href="#" id="login-link" ng-click="$ctrl.modals.open('login')">Login</a></li>
+                    <li ng-show="$ctrl.loggedIn()"><a href="/dashboard">Home</a></li>
+                    <li ng-show="$ctrl.loggedIn()"><a href="/profile">Edit Profile</a></li>
+                    <li ng-show="$ctrl.loggedIn()"><a href="#" ng-click="$ctrl.logout()">Log Out</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <p>
+       hello  {{$ctrl.user()}}
+    </p>
+
+    <section id="content" class="content">
+        <div ui-view class="shuffle-animation"></div>
+    </section>
+    <footer id="footer-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 text-uppercase">
+                    <p><strong>Copyright 2016 pharmacist Mutual Insurance Company  All rights reserved.</strong></p>
+                    <p>Product descriptions are not contracts for coverage. |  the policy language determines coverage and limits. | P ampersand see products are under written by pharmacist Mutual Insurance Company except flood, executive liability, sure to bonds, and errands and omission insurance policies, which are written through PMC advantage Insurance Services, Inc. | life and annuity products are under written by the pharmacist life insurance | A.M. Best’s credit rating czar independent and objectives opinion | all products may not be available in all states and territories.</p>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <a href="/about-us">About Us</a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="/career-opportunities">Careers</a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="/news-archive">News</a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="/privacy-policy">Privacy Policy</a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="/whistleblower-policy">Whistleblower</a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="/contact">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

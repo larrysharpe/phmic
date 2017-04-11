@@ -1,0 +1,106 @@
+<div ng-show="$ctrl.isView('billpay')">
+
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Bill Pay</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <section>
+            <p>We process online payments through Paymentus, a third-party service. Just wanted to let you know what's going on.</p>
+
+            <p>You won't be required to log into their site.</p>
+
+            <p>If you're okay with being redirected to an outside service, click “Go to Paymentus” below.</p>
+
+            <p>
+                <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    Close this Window
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    Go to Paymentus
+                </button>
+            </p>
+        </section>
+    </div>
+</div>
+<div ng-show="$ctrl.isView('help')">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Get Help</h3>
+        </div>
+        <section class="modal-body">
+            <p>Need some human help? Give are friendly and knowledgeable member services staff a call now!</p>
+            <p>Toll free number
+                <a href="">(515) xxx-xxxx ext. xxxx</a>
+            </p>
+            <p>
+                Prefer the email? Here's our address <a href="">memberservices@phmic.com</a>
+            </p>
+            <p>
+                <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    Close this Window
+                </button>
+            </p>
+
+        </section>
+</div>
+<div ng-show="$ctrl.isView('acctmaint')">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Account Maintenance</h3>
+        </div>
+        <section class="modal-body">
+            <p>Need to make a change to your account?</p>
+            <p>Choose one of the options below:</p>
+            <p>
+                <button class="btn btn-primary">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    Change Password:
+                </button>
+            </p>
+            <p>
+                <button class="btn btn-primary">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    Change Security Question:
+                </button>
+            </p>
+            <p>
+                <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    Close this Window
+                </button>
+            </p>
+
+        </section>
+</div>
+<div ng-show="$ctrl.isView('chgpassword')">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Change Password</h3>
+        </div>
+        <section class="modal-body">
+            <p>Choose a new password. If you changed your mind, just close this window.</p>
+            <p>
+                New password<br>
+                <input type="text" placeholder="enter new password">
+            </p>
+            <p>
+                Now enter your current password so we know you’er authorized to make this change.
+            </p>
+            <p>
+                Current Password<br>
+                <input type="text" placeholder="answer current password">
+            </p>
+            <p>
+                <button class="btn btn-danger" ng-click="$ctrl.closeModal()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    Cancel Changes
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Change Password
+                </button>
+            </p>
+
+        </section>
+    </div>
+</div>
