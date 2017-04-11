@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('dataservice', dataservice);
 
-    dataservice.$inject = ['$http', '$q', 'exception', '$base64', 'DataUrls'];
+    dataservice.$inject = ['$http', '$q', 'exception', '$base64', 'DataUrls', 'ServerBase'];
     /* @ngInject */
-    function dataservice($http, $q, exception,  $base64, DataUrls) {
+    function dataservice($http, $q, exception,  $base64, DataUrls, ServerBase) {
         var deferred = $q.defer();
 
         var service = {
@@ -34,7 +34,7 @@
                 email: email
             };
 
-            $http.post(DataUrls.POST_RESETPASSWORD, obj)
+            $http.post(ServerBase + DataUrls.POST_RESETPASSWORD, obj)
                 .then(function(res) {
                     deferred.resolve(res);
                 },function(res) {
@@ -49,7 +49,7 @@
                 email: email
             };
 
-            $http.post(DataUrls.POST_RESETPASSWORDTOKEN, obj)
+            $http.post(ServerBase + DataUrls.POST_RESETPASSWORDTOKEN, obj)
                 .then(function(res) {
                     deferred.resolve(res);
                 },function(res) {
@@ -63,7 +63,7 @@
                 email: email
             };
 
-            $http.post(DataUrls.POST_REQUESTRESETPASSWORD, obj)
+            $http.post(ServerBase + DataUrls.POST_REQUESTRESETPASSWORD, obj)
                 .then(function(res) {
                     deferred.resolve(res);
                 },function(res) {
@@ -84,7 +84,7 @@
         function getUser () {
             var d = $q.defer();
 
-            $http.get(DataUrls.GET_USER)
+            $http.get(ServerBase + DataUrls.GET_USER)
             .then(function(res) {
                 var usr = (res.data) ? res.data : res;
                 d.resolve(usr);
@@ -97,7 +97,7 @@
         }
         function login (user, callback) {
             var cb = callback || angular.noop;
-            return $http.post(DataUrls.POST_LOGIN, {
+            return $http.post(ServerBase + DataUrls.POST_LOGIN, {
                 email: user.email,
                 password: user.password
             })
@@ -120,7 +120,7 @@
                 return exception.catcher('XHR Failed for getPeople')(e);
             };
 
-            return $http.get(DataUrls.GET_CLIENTS + id)
+            return $http.get(ServerBase + DataUrls.GET_CLIENTS + id)
                 .then(success)
                 .catch(fail);
 
@@ -135,7 +135,7 @@
                 return exception.catcher('XHR Failed for getPeople')(e);
             };
 
-            return $http.get(DataUrls.GET_POLICIES + id)
+            return $http.get(ServerBase + DataUrls.GET_POLICIES + id)
                 .then(success)
                 .catch(fail);
 
@@ -150,7 +150,7 @@
                 return exception.catcher('XHR Failed for getPeople')(e);
             };
 
-            return $http.get(DataUrls.GET_POLICIES + id)
+            return $http.get(ServerBase + DataUrls.GET_POLICIES + id)
                 .then(success)
                 .catch(fail);
 
@@ -165,7 +165,7 @@
                 return exception.catcher('XHR Failed for getPeople')(e);
             };
 
-            return $http.get(DataUrls.GET_CLIENTS)
+            return $http.get(ServerBase + DataUrls.GET_CLIENTS)
                 .then(success)
                 .catch(fail);
 
@@ -175,7 +175,7 @@
                 email: email,
                 customerNumber: customerNumber
             };
-            return $http.post(DataUrls.POST_CREATEACCESSCODE, obj)
+            return $http.post(ServerBase + DataUrls.POST_CREATEACCESSCODE, obj)
                 .then(function(res) { return res; })
                 .catch(function(e) {
                     return exception.catcher('XHR Failed for getPeople')(e);
@@ -186,7 +186,7 @@
                 email: email,
                 customerNumber: customerNumber
             };
-            return $http.post(DataUrls.POST_RESENDACCESSCODE, obj)
+            return $http.post(ServerBase + DataUrls.POST_RESENDACCESSCODE, obj)
                 .then(function(res) { return res; })
                 .catch(function(e) {
                     return exception.catcher('XHR Failed for resendAccessCode')(e);
@@ -198,7 +198,7 @@
                 customerNumber: customerNumber,
                 accessCode: accessCode
             };
-            return $http.post(DataUrls.POST_CREATEACCESSPOINT, obj)
+            return $http.post(ServerBase + DataUrls.POST_CREATEACCESSPOINT, obj)
                 .then(function(res) { return res; })
                 .catch(function(e) {
                     return exception.catcher('XHR Failed for createAccessPoint')(e);
@@ -210,7 +210,7 @@
                 customerNumber: user.customerno,
                 password: $base64.encode(user.password)
             };
-            return $http.post(DataUrls.POST_CREATEUSERACCOUNT, obj)
+            return $http.post(ServerBase + DataUrls.POST_CREATEUSERACCOUNT, obj)
                 .then(function(res) { return res; })
                 .catch(function(e) {
                     return exception.catcher('XHR Failed for createUserAccount')(e);

@@ -9,7 +9,7 @@
                     <div class="content-box-body">
                         <h3>Policyholder Information</h3>
                         <p>
-                            {{$ctrl.getCurrentUser().first_name}} {{$ctrl.getCurrentUser().last_name}}
+                            {{$ctrl.getCurrentUser().name}}
                         </p>
                         <p>
                             {{$ctrl.getCurrentUser().address}}
@@ -22,7 +22,7 @@
                         <ul class="list-unstyled">
                             <li ng-repeat="policy in $ctrl.getCurrentUser().policies">
                                 <a href="/policy/{{policy.id}}">
-                                    {{policy.TypeName}} Policy
+                                    {{policy.symbol}} {{policy.policy}} {{policy.module}}
                                 </a>
                             </li>
                         </ul>

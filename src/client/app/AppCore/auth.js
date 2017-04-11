@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('Auth', Auth);
 
-    Auth.$inject = ['$base64', '$cookieStore', 'dataservice', '$location', '$q', '$http'];
+    Auth.$inject = ['$base64', '$cookieStore', 'dataservice', '$location', '$q', '$http', 'DataUrls', 'ServerBase'];
 
-    function Auth($base64, $cookieStore, dataservice, $location, $q, $http) {
+    function Auth($base64, $cookieStore, dataservice, $location, $q, $http, DataUrls, ServerBase) {
         var svc = {};
         var clientToken = $cookieStore.get('token');
         var currentUser = {};
@@ -33,10 +33,12 @@
             var cb = callback || angular.noop;
             var deferred = $q.defer();
 
-            $http.post('api/auth', {
+            var logginIn = {
                 email: $base64.encode(user.email),
                 password: $base64.encode(user.password)
-            })
+            };
+
+            $http.post(ServerBase + DataUrls.POST_LOGIN, logginIn)
             .then(function(res) {
                 var tkn = (res.data.token) ? res.data.token : res.token;
                 $cookieStore.put('token', tkn);

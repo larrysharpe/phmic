@@ -4,6 +4,8 @@
 
     angular
         .module('app.core')
+        //.constant('ServerBase', 'https://devmember.phmic.com')
+        .constant('ServerBase', 'http://mcguiz1-3130dev:8080')
         .constant('DataUrls', {
             'GET_CLIENT': '/api/clients/',
             'GET_CLIENTS': '/api/clients/',
