@@ -15,7 +15,7 @@ describe('core', function() {
             expect($state.get('404').templateUrl).to.equal(views.four0four);
         });
 
-        it('of home should work with $state.go', function() {
+        it('of Home should work with $state.go', function() {
             $state.go('404');
             $rootScope.$apply();
             expect($state.is('404'));

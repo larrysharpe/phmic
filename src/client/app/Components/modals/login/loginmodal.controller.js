@@ -1,20 +1,13 @@
 (function () {
     'use strict';
 
-    //todo: remove test data
-    var testData = {
-        email: 'edunn0@yellowbook.com',
-        password: 'anVIqH7X'
-    };
-
     angular
         .module('app.loginmodal')
-        .value('LoginModalTestData', testData)
         .controller('LoginModalController', LoginModalController);
 
-    LoginModalController.$inject = ['$uibModalInstance', 'ModalService', '$scope', '$location', 'Auth', 'LoginModalTestData'];
+    LoginModalController.$inject = ['$uibModalInstance', 'ModalService', '$scope', '$location', 'Auth'];
     /* @ngInject */
-    function LoginModalController($uibModalInstance, ModalService, $scope, $location, Auth, LoginModalTestData) {
+    function LoginModalController($uibModalInstance, ModalService, $scope, $location, Auth) {
         var $ctrl  = this;
         $ctrl.login = {};
         $ctrl.loginattempts = 0;
@@ -24,8 +17,6 @@
         $ctrl.toolTipEmail = 'We do not recognize that email address. Check your spelling or click below if you need help.';
         $ctrl.toolTipPassword = 'That password is incorrect. Try again or click below for assistance.';
         $ctrl.view = 'login';   //[login, loggingIn, locked]
-
-        $ctrl.login = LoginModalTestData; //todo: remove test data
 
         var openLoginForm = function () {
             $ctrl.view = 'login';

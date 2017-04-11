@@ -18,7 +18,7 @@
                 config: {
                     authenticate: true,
                     url: '/dashboard',
-                    templateUrl: 'app/Pages/Dashboard/Dasboard.html',
+                    templateUrl: 'app/Pages/Dashboard/Dashboard.html',
                     controller: 'DashboardController',
                     controllerAs: '$ctrl',
                     title: 'Dashboard',

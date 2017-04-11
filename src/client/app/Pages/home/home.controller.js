@@ -23,9 +23,7 @@
 
         function activate() {
             var promises = [getMessageCount()];
-            return $q.all(promises).then(function () {
-                logger.info('Activated Home View');
-            });
+            return $q.all(promises);
         }
 
         function getMessageCount() {

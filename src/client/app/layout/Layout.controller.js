@@ -3,11 +3,11 @@
 
     angular
         .module('app.layout')
-        .controller('ShellController', ShellController);
+        .controller('LayoutController', LayoutController);
 
-    ShellController.$inject = ['$state', '$location', 'Auth', 'ModalService'];
+    LayoutController.$inject = ['$state', '$location', 'Auth', 'ModalService'];
     /* @ngInject */
-    function ShellController($state, $location, Auth, ModalService) {
+    function LayoutController($state, $location, Auth, ModalService) {
         var paybillPages = ['dashboard', 'policy'];
         var themeDark = ['dashboard', 'policy', 'profile', 'changepassword', 'changesecurityquestions',
             'accountsecurity', 'about-us'];
@@ -15,7 +15,7 @@
         var $ctrl = this;
         $ctrl.loggedIn = Auth.isLoggedIn;
         $ctrl.modals = ModalService;
-        $ctrl.page = $state.current.name;
+        // $ctrl.page =  ($state && $state.current && $state.current.name) ? $state.current.name : '';
         $ctrl.themeclass = null;
         $ctrl.user = Auth.getUser;
 

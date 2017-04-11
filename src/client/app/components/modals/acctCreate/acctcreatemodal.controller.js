@@ -17,21 +17,6 @@
         $ctrl.showCancelConfirmation = false;
         $ctrl.acct = {};
 
-        //todo: remove test data
-        $ctrl.acct = {
-            accesscode: 'asfadgrtartartatvt',
-            customerno: 123354,
-            email: 'kblack6@washingtonpost.com',
-            password: 'eefwwewfwA1',
-            confirmpassword: 'eefwwewfwA1',
-            securityquestions: [
-                {question: 'What was your childhood nickname1?', answer: 'wefwfewfef'},
-                {question: 'What was your childhood nickname2?', answer: 'ewfwefwf'},
-                {question: 'What was your childhood nickname3?', answer: 'wefwefwfefe'}
-            ]
-
-        };
-
         $ctrl.showNextStep = function () {
             return $ctrl.currentStep < ($ctrl.totalSteps - 1);
         };

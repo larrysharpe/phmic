@@ -14,6 +14,7 @@
     "express": "^4.9.3",
     "jsonwebtoken": "^7.3.0",
     "morgan": "^1.1.1",
+    "phantomjs": "^2.1.7",
     "serve-favicon": "^2.0.1"
   },
   "devDependencies": {
@@ -81,7 +82,6 @@
     "mocha": "^2.2.5",
     "node-notifier": "^4.0.3",
     "optipng-bin": "^3.0.4",
-    "phantomjs": "^1.9.19",
     "plato": "^1.2.0",
     "q": "^1.0.1",
     "sinon": "^1.12.2",

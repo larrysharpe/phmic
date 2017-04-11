@@ -14,15 +14,15 @@ describe('dashboard routes', function () {
 
         bard.verifyNoOutstandingHttpRequests();
 
-        it('should map state home to url / ', function() {
+        it('should map state Home to url / ', function() {
             expect($state.href('home', {})).to.equal('/');
         });
 
-        it('should map /home route to home View template', function () {
+        it('should map /Home route to Home View template', function () {
             expect($state.get('home').templateUrl).to.equal(view);
         });
 
-        it('of home should work with $state.go', function () {
+        it('of Home should work with $state.go', function () {
             $state.go('home');
             $rootScope.$apply();
             expect($state.is('home'));
